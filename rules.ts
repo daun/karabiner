@@ -328,7 +328,7 @@ const rules: KarabinerRules[] = [
 ];
 
 fs.writeFileSync(
-  "karabiner.json",
+  "build/karabiner.json",
   JSON.stringify(
     {
       global: {
