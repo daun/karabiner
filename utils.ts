@@ -149,6 +149,15 @@ function generateSubLayerVariableName(key: KeyCode) {
   return `hyper_sublayer_${key}`;
 }
 
+export function sortObjectKeys(key: string, value: unknown) {
+  if (value instanceof Array) return value;
+  if (!(value instanceof Object)) return value;
+  return Object.keys(value).sort().reduce((sorted, key) => {
+    sorted[key] = value[key];
+    return sorted;
+  }, {});
+}
+
 /**
  * Shortcut for "open" shell command
  */

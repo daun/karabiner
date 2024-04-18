@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, window } from "./utils";
+import { createHyperSubLayers, app, open, window, sortObjectKeys } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -298,7 +298,7 @@ fs.writeFileSync(
         },
       ],
     },
-    null,
+    sortObjectKeys,
     4
   )
 );
