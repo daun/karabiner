@@ -78,7 +78,18 @@ const rules: KarabinerRules[] = [
 
     // w = "Window" via Raycast Window Management
     w: {
-      semicolon: {
+      u: window("first-third"),
+      i: window("center-third"),
+      n: window("first-two-thirds"),
+      m: window("last-two-thirds"),
+      o: window("last-third"),
+      k: window("top-half"),
+      j: window("bottom-half"),
+      h: window("left-half"),
+      l: window("right-half"),
+      semicolon: window("maximize"),
+      quote: window("almost-maximize"),
+      comma: {
         description: "Window: Hide",
         to: [
           {
@@ -87,69 +98,90 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // y: window("previous-display"),
-      // o: window("next-display"),
-      k: window("top-half"),
-      j: window("bottom-half"),
-      h: window("left-half"),
-      l: window("right-half"),
-      f: window("maximize"),
-      u: {
-        description: "Window: Previous Tab",
+    },
+
+    // d = "Desktop"
+    d: {
+      j: window("previous-desktop"),
+      k: window("next-desktop"),
+      h: {
+        description: "Desktop: Go to Previous Space",
         to: [
           {
-            key_code: "tab",
-            modifiers: ["right_control", "right_shift"],
-          },
-        ],
-      },
-      i: {
-        description: "Window: Next Tab",
-        to: [
-          {
-            key_code: "tab",
+            key_code: "left_arrow",
             modifiers: ["right_control"],
           },
         ],
       },
-      n: {
-        description: "Window: Next Window",
-        to: [
-          {
-            key_code: "grave_accent_and_tilde",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      b: {
-        description: "Window: Back",
-        to: [
-          {
-            key_code: "open_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      // Note: No literal connection. Both f and n are already taken.
-      m: {
-        description: "Window: Forward",
-        to: [
-          {
-            key_code: "close_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      d: {
-        description: "Window: Next display",
+      l: {
+        description: "Desktop: Go to Next Space",
         to: [
           {
             key_code: "right_arrow",
-            modifiers: ["right_control", "right_option", "right_command"],
+            modifiers: ["right_control"],
           },
         ],
       },
     },
+
+    // w = (currently inactive) "Window" via Raycast Window Management
+    // w: {
+    //   u: {
+    //     description: "Window: Previous Tab",
+    //     to: [
+    //       {
+    //         key_code: "tab",
+    //         modifiers: ["right_control", "right_shift"],
+    //       },
+    //     ],
+    //   },
+    //   i: {
+    //     description: "Window: Next Tab",
+    //     to: [
+    //       {
+    //         key_code: "tab",
+    //         modifiers: ["right_control"],
+    //       },
+    //     ],
+    //   },
+    //   n: {
+    //     description: "Window: Next Window",
+    //     to: [
+    //       {
+    //         key_code: "grave_accent_and_tilde",
+    //         modifiers: ["right_command"],
+    //       },
+    //     ],
+    //   },
+    //   b: {
+    //     description: "Window: Back",
+    //     to: [
+    //       {
+    //         key_code: "open_bracket",
+    //         modifiers: ["right_command"],
+    //       },
+    //     ],
+    //   },
+    //   // Note: No literal connection. Both f and n are already taken.
+    //   m: {
+    //     description: "Window: Forward",
+    //     to: [
+    //       {
+    //         key_code: "close_bracket",
+    //         modifiers: ["right_command"],
+    //       },
+    //     ],
+    //   },
+    //   d: {
+    //     description: "Window: Next display",
+    //     to: [
+    //       {
+    //         key_code: "right_arrow",
+    //         modifiers: ["right_control", "right_option", "right_command"],
+    //       },
+    //     ],
+    //   },
+    // },
 
     // s = "System"
     s: {
@@ -271,6 +303,7 @@ const rules: KarabinerRules[] = [
       c: open("raycast://extensions/raycast/system/open-camera"),
       p: open("raycast://extensions/raycast/raycast/confetti"),
       a: open("raycast://extensions/abielzulio/chatgpt/ask"),
+      u: open("raycast://extensions/abielzulio/chatgpt/ask"),
       // a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
       // s: open("raycast://extensions/peduarte/silent-mention/index"),
       h: open("raycast://extensions/raycast/clipboard-history/clipboard-history"),
