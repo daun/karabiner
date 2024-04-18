@@ -46,8 +46,8 @@ const rules: KarabinerRules[] = [
     // b = "B"rowse
     b: {
       g: open("https://github.com/"),
-      i: open("https://www.theguardian.com/international"),
       m: open("https://mondediplo.com"),
+      n: open("https://www.theguardian.com/international"),
       r: open("https://reddit.com"),
       t: open("https://twitter.com"),
       y: open("https://news.ycombinator.com"),
