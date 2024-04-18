@@ -9,10 +9,10 @@ Forked from [mxstbr/karabiner](https://github.com/mxstbr/karabiner)
 ## Installation
 
 1. Install & start [Karabiner Elements](https://karabiner-elements.pqrs.org/)
-1. Clone this repository
-1. Delete the default `~/.config/karabiner` folder
-1. Create a symlink with `ln -s ~/personal/karabiner ~/.config` (where `~/personal/karabiner` is your local path to where you cloned the repository)
-1. Restart Karabiner console user server with `` launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server ``
+2. Clone this repository
+3. Delete the default `~/.config/karabiner` folder
+4. Create a symlink with `ln -ns ~/personal/karabiner/build ~/.config` (where `~/personal/karabiner` is your local path to where you cloned the repository), or use the supplied `./bootstrap.sh` to automate this step
+5. Restart Karabiner console user server with `` launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server ``
 
 ## Development
 
