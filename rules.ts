@@ -38,68 +38,45 @@ const rules: KarabinerRules[] = [
         ],
         type: "basic",
       },
-      //      {
-      //        type: "basic",
-      //        description: "Disable CMD + Tab to force Hyper Key usage",
-      //        from: {
-      //          key_code: "tab",
-      //          modifiers: {
-      //            mandatory: ["left_command"],
-      //          },
-      //        },
-      //        to: [
-      //          {
-      //            key_code: "tab",
-      //          },
-      //        ],
-      //      },
     ],
   },
   ...createHyperSubLayers({
-    spacebar: open(
-      "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
-    ),
+    // spacebar: ???,
+
     // b = "B"rowse
     b: {
-      t: open("https://twitter.com"),
-      // Quarterly "P"lan
-      p: open("https://qrtr.ly/plan"),
-      y: open("https://news.ycombinator.com"),
-      f: open("https://facebook.com"),
+      g: open("https://github.com/"),
+      i: open("https://www.theguardian.com/international"),
+      m: open("https://mondediplo.com"),
       r: open("https://reddit.com"),
-    },
-    // o = "Open" applications
-    o: {
-      1: app("1Password"),
-      g: app("Google Chrome"),
-      c: app("Notion Calendar"),
-      v: app("Visual Studio Code"),
-      d: app("Discord"),
-      s: app("Slack"),
-      e: app("Superhuman"),
-      n: app("Notion"),
-      t: app("Warp"),
-      // Open todo list managed via *H*ypersonic
-      h: open(
-        "notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
-      ),
-      z: app("zoom.us"),
-      // "M"essages
-      m: app("Texts"),
-      f: app("Finder"),
-      r: app("Texts"),
-      // "i"Message
-      i: app("Texts"),
-      p: app("Spotify"),
-      a: app("iA Presenter"),
-      // "W"hatsApp has been replaced by Texts
-      w: open("Texts"),
-      l: open(
-        "raycast://extensions/stellate/mxstbr-commands/open-mxs-is-shortlink"
-      ),
+      t: open("https://twitter.com"),
+      y: open("https://news.ycombinator.com"),
     },
 
-    // w = "Window" via rectangle.app
+    // o = "Open" applications
+    o: {
+      // "M"essages
+      // p: app("Adobe Photoshop 2024"),
+      1: app("1Password"),
+      a: app("Figma"),
+      b: app("Google Chrome"),
+      c: app("Calendar"),
+      d: app("Adobe InDesign 2024"),
+      e: app("Spark"),
+      f: app("Finder"),
+      g: app("Tower"),
+      i: app("iTerm"),
+      m: app("Texts"),
+      n: app("Notion"),
+      p: app("Spotify"),
+      r: app("Around"),
+      s: app("Slack"),
+      t: app("Things"),
+      v: app("Visual Studio Code"),
+      z: app("zoom.us"),
+    },
+
+    // w = "Window" via Raycast Window Management
     w: {
       semicolon: {
         description: "Window: Hide",
@@ -112,7 +89,7 @@ const rules: KarabinerRules[] = [
       },
       // y: window("previous-display"),
       // o: window("next-display"),
-    k: window("top-half"),
+      k: window("top-half"),
       j: window("bottom-half"),
       h: window("left-half"),
       l: window("right-half"),
@@ -235,21 +212,6 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // Turn on Elgato KeyLight
-      y: {
-        to: [
-          {
-            shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 1, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-          },
-        ],
-      },
-      h: {
-        to: [
-          {
-            shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 0, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-          },
-        ],
-      },
       // "D"o not disturb toggle
       d: open(`raycast://extensions/yakitrak/do-not-disturb/toggle`),
     },
@@ -304,25 +266,14 @@ const rules: KarabinerRules[] = [
     // r = "Raycast"
     r: {
       n: open("raycast://script-commands/dismiss-notifications"),
-      l: open(
-        "raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"
-      ),
-      e: open(
-        "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
-      ),
+      // l: open("raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"),
+      e: open("raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"),
       c: open("raycast://extensions/raycast/system/open-camera"),
       p: open("raycast://extensions/raycast/raycast/confetti"),
-      a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
-      s: open("raycast://extensions/peduarte/silent-mention/index"),
-      h: open(
-        "raycast://extensions/raycast/clipboard-history/clipboard-history"
-      ),
-      1: open(
-        "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"
-      ),
-      2: open(
-        "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2"
-      ),
+      a: open("raycast://extensions/abielzulio/chatgpt/ask"),
+      // a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
+      // s: open("raycast://extensions/peduarte/silent-mention/index"),
+      h: open("raycast://extensions/raycast/clipboard-history/clipboard-history"),
     },
   }),
 ];
