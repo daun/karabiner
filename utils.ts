@@ -178,6 +178,20 @@ export function rectangle(name: string): LayerCommand {
 }
 
 /**
+ * Shortcut for managing window sizing using Raycast Window Management extension
+ */
+export function window(name: string): LayerCommand {
+  return {
+    to: [
+      {
+        shell_command: `open raycast://extensions/raycast/window-management/${name}`,
+      },
+    ],
+    description: `Window: ${name}`,
+  };
+}
+
+/**
  * Shortcut for "Open an app" command (of which there are a bunch)
  */
 export function app(name: string): LayerCommand {
