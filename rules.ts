@@ -71,7 +71,7 @@ const rules: KarabinerRules[] = [
       p: app("Spotify"),
       r: app("Around"),
       s: app("Slack"),
-      t: open("things:///show?id=today"), // app("Things"),
+      t: app("Things3"),
       v: app("Visual Studio Code"),
       z: app("zoom.us"),
     },
