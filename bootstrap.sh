@@ -2,7 +2,7 @@
 
 # The current directory
 
-dir="${HOME}/.karabiner"
+DIR=$(dirname $(readlink -f $0))
 
 # Create directories
 
@@ -10,4 +10,4 @@ mkdir -p "${HOME}/.config/"
 
 # Create symlinks in config directory
 
-ln -ns "${dir}/build" ~/.config/karabiner
+ln -ns "${DIR}/build" ~/.config/karabiner
