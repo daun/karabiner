@@ -173,6 +173,21 @@ export function open(what: string): LayerCommand {
 }
 
 /**
+ * Shortcut for executing raycast commands
+ */
+export function raycast(command: string, background: boolean = false): LayerCommand {
+  const params = background ? '?launchType=background' : '';
+  return {
+    to: [
+      {
+        shell_command: `open raycast://${command}${params}`,
+      },
+    ],
+    description: `Raycast: ${command}`,
+  };
+}
+
+/**
  * Shortcut for managing window sizing with Rectangle
  */
 export function rectangle(name: string): LayerCommand {
@@ -193,7 +208,7 @@ export function window(name: string): LayerCommand {
   return {
     to: [
       {
-        shell_command: `open raycast://extensions/raycast/window-management/${name}`,
+        shell_command: `open raycast://extensions/raycast/window-management/${name}?launchType=background`,
       },
     ],
     description: `Window: ${name}`,
