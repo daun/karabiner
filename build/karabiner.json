@@ -854,7 +854,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open raycast://extensions/raycast/window-management/top-half?launchType=background"
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/top-half?launchType=background"
                                     }
                                 ],
                                 "type": "basic"
@@ -878,7 +878,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open raycast://extensions/raycast/window-management/bottom-half?launchType=background"
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/bottom-half?launchType=background"
                                     }
                                 ],
                                 "type": "basic"
@@ -902,7 +902,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open raycast://extensions/raycast/window-management/left-half?launchType=background"
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/left-half?launchType=background"
                                     }
                                 ],
                                 "type": "basic"
@@ -926,7 +926,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open raycast://extensions/raycast/window-management/right-half?launchType=background"
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/right-half?launchType=background"
                                     }
                                 ],
                                 "type": "basic"
@@ -950,7 +950,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open raycast://extensions/raycast/window-management/maximize?launchType=background"
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/maximize?launchType=background"
                                     }
                                 ],
                                 "type": "basic"

@@ -208,7 +208,7 @@ export function window(name: string): LayerCommand {
   return {
     to: [
       {
-        shell_command: `open raycast://extensions/raycast/window-management/${name}?launchType=background`,
+        shell_command: `open -g raycast://extensions/raycast/window-management/${name}?launchType=background`,
       },
     ],
     description: `Window: ${name}`,
