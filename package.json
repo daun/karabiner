@@ -2,7 +2,10 @@
   "name": "karabiner",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Max Stoiber <contact@mxstbr.com>",
+  "author": "Philipp Daun <daun@daun.ltd>",
+  "contributors": [
+    "Max Stoiber <contact@mxstbr.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.7.19",
@@ -12,6 +15,9 @@
   },
   "scripts": {
     "build": "tsm rules.ts",
-    "watch": "nodemon --exec yarn build -e ts"
+    "watch": "nodemon --exec npm run build -e ts",
+    "reload": "launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server",
+    "deploy": "npm run build && npm run reload",
+    "bootstrap": "./bootstrap.sh"
   }
 }
