@@ -64,6 +64,11 @@
                                         "value": 0
                                     },
                                     {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "hyper_sublayer_s",
                                         "type": "variable_if",
                                         "value": 0
@@ -148,30 +153,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open https://www.theguardian.com/international",
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open https://www.theguardian.com/international"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_b",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "description": "Open https://mondediplo.com",
                                 "from": {
                                     "key_code": "m",
@@ -184,6 +165,30 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://mondediplo.com"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_b",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Open https://www.theguardian.com/international",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open https://www.theguardian.com/international"
                                     }
                                 ],
                                 "type": "basic"
@@ -274,6 +279,11 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_d",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -554,7 +564,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open -a 'Texts.app'",
+                                "description": "Open -a 'Messages.app'",
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
@@ -565,7 +575,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Texts.app'"
+                                        "shell_command": "open -a 'Messages.app'"
                                     }
                                 ],
                                 "type": "basic"
@@ -674,7 +684,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open -a 'Things.app'",
+                                "description": "Open -a 'Things3.app'",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": {
@@ -685,7 +695,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open -a 'Things.app'"
+                                        "shell_command": "open -a 'Things3.app'"
                                     }
                                 ],
                                 "type": "basic"
@@ -756,6 +766,11 @@
                                         "value": 0
                                     },
                                     {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "hyper_sublayer_s",
                                         "type": "variable_if",
                                         "value": 0
@@ -816,9 +831,9 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Window: Hide",
+                                "description": "Window: first-third",
                                 "from": {
-                                    "key_code": "semicolon",
+                                    "key_code": "u",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -827,10 +842,103 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "h",
-                                        "modifiers": [
-                                            "right_command"
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/first-third?launchType=background"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: center-third",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
                                         ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/center-third?launchType=background"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: first-two-thirds",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/first-two-thirds?launchType=background"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: last-two-thirds",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/last-two-thirds?launchType=background"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: last-third",
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/last-third?launchType=background"
                                     }
                                 ],
                                 "type": "basic"
@@ -941,7 +1049,7 @@
                                 ],
                                 "description": "Window: maximize",
                                 "from": {
-                                    "key_code": "f",
+                                    "key_code": "semicolon",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -963,9 +1071,9 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Window: Previous Tab",
+                                "description": "Window: almost-maximize",
                                 "from": {
-                                    "key_code": "u",
+                                    "key_code": "quote",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -974,11 +1082,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "right_control",
-                                            "right_shift"
-                                        ]
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/almost-maximize?launchType=background"
                                     }
                                 ],
                                 "type": "basic"
@@ -991,9 +1095,9 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Window: Next Tab",
+                                "description": "Window: Hide",
                                 "from": {
-                                    "key_code": "i",
+                                    "key_code": "comma",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -1002,104 +1106,63 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "right_control"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Window: Next Window",
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "grave_accent_and_tilde",
+                                        "key_code": "h",
                                         "modifiers": [
                                             "right_command"
                                         ]
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key sublayer \"d\"",
+                        "manipulators": [
                             {
                                 "conditions": [
                                     {
+                                        "name": "hyper_sublayer_b",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_o",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_v",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_c",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_r",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper",
                                         "type": "variable_if",
                                         "value": 1
                                     }
                                 ],
-                                "description": "Window: Back",
-                                "from": {
-                                    "key_code": "b",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "open_bracket",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Window: Forward",
-                                "from": {
-                                    "key_code": "m",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "close_bracket",
-                                        "modifiers": [
-                                            "right_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Window: Next display",
+                                "description": "Toggle Hyper sublayer d",
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
@@ -1110,11 +1173,119 @@
                                 },
                                 "to": [
                                     {
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_d",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_d",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: previous-desktop",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/previous-desktop?launchType=background"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Window: next-desktop",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -g raycast://extensions/raycast/window-management/next-desktop?launchType=background"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Desktop: Go to Previous Space",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "right_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Desktop: Go to Next Space",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
                                         "key_code": "right_arrow",
                                         "modifiers": [
-                                            "right_control",
-                                            "right_option",
-                                            "right_command"
+                                            "right_control"
                                         ]
                                     }
                                 ],
@@ -1139,6 +1310,11 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_d",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -1425,6 +1601,11 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_d",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -1716,6 +1897,11 @@
                                         "value": 0
                                     },
                                     {
+                                        "name": "hyper_sublayer_d",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "hyper_sublayer_s",
                                         "type": "variable_if",
                                         "value": 0
@@ -1851,6 +2037,11 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_w",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_d",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -2009,6 +2200,30 @@
                                 "description": "Open raycast://extensions/abielzulio/chatgpt/ask",
                                 "from": {
                                     "key_code": "a",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://extensions/abielzulio/chatgpt/ask"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_r",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Open raycast://extensions/abielzulio/chatgpt/ask",
+                                "from": {
+                                    "key_code": "u",
                                     "modifiers": {
                                         "optional": [
                                             "any"
