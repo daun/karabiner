@@ -299,6 +299,6 @@ fs.writeFileSync(
       ],
     },
     null,
-    2
+    4
   )
 );
