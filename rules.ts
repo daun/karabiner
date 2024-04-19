@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, window, sortObjectKeys } from "./utils";
+import { createHyperSubLayers, app, open, window, sortObjectKeys, press, raycast } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -56,8 +56,9 @@ const rules: KarabinerRules[] = [
     // M = Search [m]enu items
     m: raycast("extensions/raycast/navigation/search-menu-items"),
 
+    // b = [B]rowse site
     b: {
-      g: open("https://github.com/"),
+      g: open("https://github.com"),
       m: open("https://mondediplo.com"),
       n: open("https://www.theguardian.com/international"),
       r: open("https://reddit.com"),
@@ -65,10 +66,9 @@ const rules: KarabinerRules[] = [
       y: open("https://news.ycombinator.com"),
     },
 
-    // o = "Open" applications
+    // o = [O]pen application
     o: {
       // "M"essages
-      // p: app("Adobe Photoshop 2024"),
       1: app("1Password"),
       a: app("Figma"),
       b: app("Google Chrome"),
@@ -81,6 +81,7 @@ const rules: KarabinerRules[] = [
       m: app("Messages"),
       n: app("Notion"),
       p: app("Spotify"),
+      // p: app("Adobe Photoshop 2024"),
       r: app("Around"),
       s: app("Slack"),
       t: app("Things3"),
@@ -88,7 +89,7 @@ const rules: KarabinerRules[] = [
       z: app("zoom.us"),
     },
 
-    // w = "Window" via Raycast Window Management
+    // w = [W]indow Sizing via Raycast Window Management
     w: {
       u: window("first-third"),
       i: window("center-third"),
@@ -101,224 +102,87 @@ const rules: KarabinerRules[] = [
       l: window("right-half"),
       semicolon: window("maximize"),
       quote: window("almost-maximize"),
-      comma: {
-        description: "Window: Hide",
-        to: [
-          {
-            key_code: "h",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-    },
-
-    // d = "Desktop"
-    d: {
-      j: window("previous-desktop"),
-      k: window("next-desktop"),
-      h: {
-        description: "Desktop: Go to Previous Space",
-        to: [
-          {
-            key_code: "left_arrow",
-            modifiers: ["right_control"],
-          },
-        ],
-      },
-      l: {
-        description: "Desktop: Go to Next Space",
-        to: [
-          {
-            key_code: "right_arrow",
-            modifiers: ["right_control"],
-          },
-        ],
-      },
+      // comma: hide window
+      comma: press("h", ["right_command"]),
     },
 
     // w = (currently inactive) "Window" via Raycast Window Management
     // w: {
-    //   u: {
-    //     description: "Window: Previous Tab",
-    //     to: [
-    //       {
-    //         key_code: "tab",
-    //         modifiers: ["right_control", "right_shift"],
-    //       },
-    //     ],
-    //   },
-    //   i: {
-    //     description: "Window: Next Tab",
-    //     to: [
-    //       {
-    //         key_code: "tab",
-    //         modifiers: ["right_control"],
-    //       },
-    //     ],
-    //   },
-    //   n: {
-    //     description: "Window: Next Window",
-    //     to: [
-    //       {
-    //         key_code: "grave_accent_and_tilde",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   b: {
-    //     description: "Window: Back",
-    //     to: [
-    //       {
-    //         key_code: "open_bracket",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   // Note: No literal connection. Both f and n are already taken.
-    //   m: {
-    //     description: "Window: Forward",
-    //     to: [
-    //       {
-    //         key_code: "close_bracket",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   d: {
-    //     description: "Window: Next display",
-    //     to: [
-    //       {
-    //         key_code: "right_arrow",
-    //         modifiers: ["right_control", "right_option", "right_command"],
-    //       },
-    //     ],
-    //   },
+    //   // Previous tab
+    //   u: press("tab", ["right_control", "right_shift"]),
+    //   // Next tab
+    //   i: press("tab", ["right_control"]),
+    //   // Window: next
+    //   n: press("grave_accent_and_tilde", ["right_command"]),
+    //   // Window: back
+    //   b: press("open_bracket", ["right_command"]),
+    //   // Window: forward (no literal connection: f and n are already taken)
+    //   m: press("close_bracket", ["right_command"]),
+    //   // Window: Next display
+    //   d: press("right_arrow", ["right_control", "right_option", "right_command"]),
     // },
 
-    // s = "System"
-    s: {
-      u: {
-        to: [
-          {
-            key_code: "volume_increment",
-          },
-        ],
-      },
-      j: {
-        to: [
-          {
-            key_code: "volume_decrement",
-          },
-        ],
-      },
-      i: {
-        to: [
-          {
-            key_code: "display_brightness_increment",
-          },
-        ],
-      },
-      k: {
-        to: [
-          {
-            key_code: "display_brightness_decrement",
-          },
-        ],
-      },
-      l: {
-        to: [
-          {
-            key_code: "q",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
-      p: {
-        to: [
-          {
-            key_code: "play_or_pause",
-          },
-        ],
-      },
-      semicolon: {
-        to: [
-          {
-            key_code: "fastforward",
-          },
-        ],
-      },
-      e: {
-        to: [
-          {
-            // Emoji picker
-            key_code: "spacebar",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
-      // "D"o not disturb toggle
-      d: open(`raycast://extensions/yakitrak/do-not-disturb/toggle`),
+    // d = "Desktop"
+    d: {
+      // j/k: Move window between desktops
+      j: window("previous-desktop"),
+      k: window("next-desktop"),
+      // h/l: Go to previous/next desktop
+      h: press("left_arrow", ["right_control"]),
+      l: press("right_arrow", ["right_control"]),
     },
 
-    // v = "moVe" which isn't "m" because we want it to be on the left hand
+    // s = [S]ystem
+    s: {
+      // u/j: Volume
+      u: press("volume_increment"),
+      j: press("volume_decrement"),
+      // i/k: Brightness
+      i: press("display_brightness_increment"),
+      k: press("display_brightness_decrement"),
+      // l: Lock screen
+      l: press("q", ["right_control", "right_command"]),
+      // e: Emoji picker
+      e: press("spacebar", ["right_control", "right_command"]),
+      // d: Do not disturb toggle
+      d: raycast("extensions/yakitrak/do-not-disturb/toggle"),
+    },
+
+    // v = Mo[v]e which isn't "m" because we want it to be on the left hand
     // so that hjkl work like they do in vim
     v: {
-      h: {
-        to: [{ key_code: "left_arrow" }],
-      },
-      j: {
-        to: [{ key_code: "down_arrow" }],
-      },
-      k: {
-        to: [{ key_code: "up_arrow" }],
-      },
-      l: {
-        to: [{ key_code: "right_arrow" }],
-      },
+      h: press("left_arrow"),
+      j: press("down_arrow"),
+      k: press("up_arrow"),
+      l: press("right_arrow"),
       // Magicmove via homerow.app
-      m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
-      },
+      m: press("f", ["right_control"]),
       // Scroll mode via homerow.app
-      s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
-      },
-      d: {
-        to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
-      },
-      u: {
-        to: [{ key_code: "page_down" }],
-      },
-      i: {
-        to: [{ key_code: "page_up" }],
-      },
+      s: press("j", ["right_control"]),
+      d: press("d", ["right_shift", "right_command"]),
+      u: press("page_down"),
+      i: press("page_up"),
     },
 
     // c = Musi*c* which isn't "m" because we want it to be on the left hand
     c: {
-      p: {
-        to: [{ key_code: "play_or_pause" }],
-      },
-      n: {
-        to: [{ key_code: "fastforward" }],
-      },
-      b: {
-        to: [{ key_code: "rewind" }],
-      },
+      p: press("play_or_pause"),
+      n: press("fastforward"),
+      b: press("rewind"),
     },
 
     // r = "Raycast"
     r: {
-      n: open("raycast://script-commands/dismiss-notifications"),
-      // l: open("raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"),
-      e: open("raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"),
-      c: open("raycast://extensions/raycast/system/open-camera"),
-      p: open("raycast://extensions/raycast/raycast/confetti"),
-      a: open("raycast://extensions/abielzulio/chatgpt/ask"),
-      u: open("raycast://extensions/abielzulio/chatgpt/ask"),
-      // a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
-      // s: open("raycast://extensions/peduarte/silent-mention/index"),
-      h: open("raycast://extensions/raycast/clipboard-history/clipboard-history"),
+      // a: raycast("extensions/raycast/raycast-ai/ai-chat"),
+      a: raycast("extensions/abielzulio/chatgpt/ask"),
+      c: raycast("extensions/raycast/system/open-camera"),
+      e: raycast("extensions/raycast/emoji-symbols/search-emoji-symbols"),
+      h: raycast("extensions/raycast/clipboard-history/clipboard-history"),
+      // l: raycast("extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"),
+      n: raycast("script-commands/dismiss-notifications"),
+      p: raycast("extensions/raycast/raycast/confetti"),
+      // s: raycast("extensions/peduarte/silent-mention/index"),
+      u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
     },
   }),
 ];
