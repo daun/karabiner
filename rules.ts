@@ -41,7 +41,8 @@ const rules: KarabinerRules[] = [
     ],
   },
   ...createHyperSubLayers({
-    // spacebar: ???,
+    // spacebar: Homerow keyboard navigation
+    spacebar: press("spacebar", ["right_control", "right_option", "right_command"]),
 
     // b = "B"rowse
     b: {
