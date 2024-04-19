@@ -53,6 +53,9 @@ const rules: KarabinerRules[] = [
     // U = [U]nicode symbol search
     u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
 
+    // M = Search [m]enu items
+    m: raycast("extensions/raycast/navigation/search-menu-items"),
+
     b: {
       g: open("https://github.com/"),
       m: open("https://mondediplo.com"),
