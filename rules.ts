@@ -44,7 +44,12 @@ const rules: KarabinerRules[] = [
     // spacebar: Homerow keyboard navigation
     spacebar: press("spacebar", ["right_control", "right_option", "right_command"]),
 
-    // b = "B"rowse
+    // HJKL: map to arrow keys
+    h: press("left_arrow"),
+    j: press("down_arrow"),
+    k: press("up_arrow"),
+    l: press("right_arrow"),
+
     b: {
       g: open("https://github.com/"),
       m: open("https://mondediplo.com"),
