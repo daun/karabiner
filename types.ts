@@ -135,6 +135,18 @@ export interface SoftwareFunction {
   iokit_power_management_sleep_system?: {};
 }
 
+export type KeyModifier =
+  | "caps_lock"
+  | "left_command"
+  | "left_control"
+  | "left_option"
+  | "left_shift"
+  | "right_command"
+  | "right_control"
+  | "right_option"
+  | "right_shift"
+  | "fn";
+
 export type KeyCode =
   | "caps_lock"
   | "left_control"

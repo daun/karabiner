@@ -1,4 +1,4 @@
-import { To, KeyCode, Manipulator, KarabinerRules } from "./types";
+import { To, KeyCode, Manipulator, KarabinerRules, KeyModifier } from "./types";
 
 /**
  * Custom way to describe a command in a layer
@@ -149,6 +149,9 @@ function generateSubLayerVariableName(key: KeyCode) {
   return `hyper_sublayer_${key}`;
 }
 
+/**
+ * Sort the keys of an object alphabetically
+ */
 export function sortObjectKeys(key: string, value: unknown) {
   if (value instanceof Array) return value;
   if (!(value instanceof Object)) return value;
@@ -156,6 +159,16 @@ export function sortObjectKeys(key: string, value: unknown) {
     sorted[key] = value[key];
     return sorted;
   }, {});
+}
+
+/**
+ * Shortcut for key press
+ */
+export function press(key_code: KeyCode, modifiers?: KeyModifier[]): LayerCommand {
+  return {
+    to: [{ key_code, modifiers } ],
+    description: `Press ${key_code}`
+  };
 }
 
 /**
