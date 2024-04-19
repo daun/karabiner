@@ -7,7 +7,7 @@ const settings = {
   check_for_updates_on_startup: true,
   show_in_menu_bar: false,
   show_profile_name_in_menu_bar: false,
-  unsafe_ui: false
+  unsafe_ui: false,
 };
 
 const rules: KarabinerRules[] = [
@@ -206,4 +206,7 @@ const config = {
   profiles: [profile],
 };
 
-fs.writeFileSync("build/karabiner.json", JSON.stringify(config, sortObjectKeys, 4));
+fs.writeFileSync(
+  "build/karabiner.json",
+  JSON.stringify(config, sortObjectKeys, 4)
+);
