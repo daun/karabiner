@@ -49,10 +49,253 @@
                         ]
                     },
                     {
+                        "description": "Hyper Key + spacebar",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Press spacebar",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "right_control",
+                                            "right_option",
+                                            "right_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key + h",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Press left_arrow",
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key + j",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Press down_arrow",
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key + k",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Press up_arrow",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key + l",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Press right_arrow",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key + u",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Raycast: extensions/mmazzarolo/unicode-symbols/index",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://extensions/mmazzarolo/unicode-symbols/index"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper Key + m",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Raycast: extensions/raycast/navigation/search-menu-items",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/navigation/search-menu-items"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Hyper Key sublayer \"b\"",
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_o",
                                         "type": "variable_if",
@@ -129,7 +372,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open https://github.com/",
+                                "description": "Open https://github.com",
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -140,7 +383,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open https://github.com/"
+                                        "shell_command": "open https://github.com"
                                     }
                                 ],
                                 "type": "basic"
@@ -272,6 +515,41 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
@@ -756,6 +1034,41 @@
                             {
                                 "conditions": [
                                     {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
                                         "value": 0
@@ -1095,7 +1408,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Window: Hide",
+                                "description": "Press h",
                                 "from": {
                                     "key_code": "comma",
                                     "modifiers": {
@@ -1121,6 +1434,41 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
@@ -1245,7 +1593,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Desktop: Go to Previous Space",
+                                "description": "Press left_arrow",
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
@@ -1272,7 +1620,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Desktop: Go to Next Space",
+                                "description": "Press right_arrow",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1298,6 +1646,41 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
@@ -1374,6 +1757,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press volume_increment",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -1397,6 +1781,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press volume_decrement",
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -1420,6 +1805,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press display_brightness_increment",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1443,6 +1829,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press display_brightness_decrement",
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1466,6 +1853,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press q",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1493,52 +1881,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "play_or_pause"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "fastforward"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
+                                "description": "Press spacebar",
                                 "from": {
                                     "key_code": "e",
                                     "modifiers": {
@@ -1566,7 +1909,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open raycast://extensions/yakitrak/do-not-disturb/toggle",
+                                "description": "Raycast: extensions/yakitrak/do-not-disturb/toggle",
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
@@ -1589,6 +1932,41 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
@@ -1665,6 +2043,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press left_arrow",
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
@@ -1688,6 +2067,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press down_arrow",
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -1711,6 +2091,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press up_arrow",
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1734,6 +2115,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press right_arrow",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1757,6 +2139,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press f",
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
@@ -1783,6 +2166,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press j",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -1809,6 +2193,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press d",
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
@@ -1836,6 +2221,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press page_down",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -1859,6 +2245,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press page_up",
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1881,6 +2268,41 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
@@ -1957,6 +2379,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press play_or_pause",
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -1980,6 +2403,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press fastforward",
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
@@ -2003,6 +2427,7 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Press rewind",
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
@@ -2025,6 +2450,41 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_spacebar",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_h",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_j",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_k",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_u",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
+                                        "name": "hyper_sublayer_m",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "name": "hyper_sublayer_b",
                                         "type": "variable_if",
@@ -2101,103 +2561,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open raycast://script-commands/dismiss-notifications",
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open raycast://script-commands/dismiss-notifications"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_r",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols",
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_r",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open raycast://extensions/raycast/system/open-camera",
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open raycast://extensions/raycast/system/open-camera"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_r",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open raycast://extensions/raycast/raycast/confetti",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open raycast://extensions/raycast/raycast/confetti"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_r",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Open raycast://extensions/abielzulio/chatgpt/ask",
+                                "description": "Raycast: extensions/abielzulio/chatgpt/ask",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": {
@@ -2221,9 +2585,9 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open raycast://extensions/abielzulio/chatgpt/ask",
+                                "description": "Raycast: extensions/raycast/system/open-camera",
                                 "from": {
-                                    "key_code": "u",
+                                    "key_code": "c",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -2232,7 +2596,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "open raycast://extensions/abielzulio/chatgpt/ask"
+                                        "shell_command": "open raycast://extensions/raycast/system/open-camera"
                                     }
                                 ],
                                 "type": "basic"
@@ -2245,7 +2609,31 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open raycast://extensions/raycast/clipboard-history/clipboard-history",
+                                "description": "Raycast: extensions/raycast/emoji-symbols/search-emoji-symbols",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_r",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Raycast: extensions/raycast/clipboard-history/clipboard-history",
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
@@ -2257,6 +2645,78 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/raycast/clipboard-history/clipboard-history"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_r",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Raycast: script-commands/dismiss-notifications",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://script-commands/dismiss-notifications"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_r",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Raycast: extensions/raycast/raycast/confetti",
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://extensions/raycast/raycast/confetti"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_r",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Raycast: extensions/mmazzarolo/unicode-symbols/index",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open raycast://extensions/mmazzarolo/unicode-symbols/index"
                                     }
                                 ],
                                 "type": "basic"
