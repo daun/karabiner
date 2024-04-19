@@ -29,17 +29,17 @@ const rules: KarabinerRules[] = [
     // spacebar: Homerow keyboard navigation
     spacebar: press("spacebar", ["right_control", "right_option", "right_command"]),
 
-    // HJKL: map to arrow keys
-    h: press("left_arrow"),
-    j: press("down_arrow"),
-    k: press("up_arrow"),
-    l: press("right_arrow"),
+    // HJKL: map to arrow keys (currently conflicts with other layers' nested HJKL mappings)
+    // h: press("left_arrow"),
+    // j: press("down_arrow"),
+    // k: press("up_arrow"),
+    // l: press("right_arrow"),
 
-    // U = [U]nicode symbol search
-    u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
+    // U = [U]nicode symbol search (currently conflicts with other layers' nested U mappings)
+    // u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
 
-    // M = Search [m]enu items
-    m: raycast("extensions/raycast/navigation/search-menu-items"),
+    // slash = Search menu items
+    slash: raycast("extensions/raycast/navigation/search-menu-items"),
 
     // b = [B]rowse site
     b: {
