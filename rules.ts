@@ -50,6 +50,9 @@ const rules: KarabinerRules[] = [
     k: press("up_arrow"),
     l: press("right_arrow"),
 
+    // U = [U]nicode symbol search
+    u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
+
     b: {
       g: open("https://github.com/"),
       m: open("https://mondediplo.com"),
