@@ -2,6 +2,14 @@ import fs from "fs";
 import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open, window, sortObjectKeys, press, raycast } from "./utils";
 
+const settings = {
+  ask_for_confirmation_before_quitting: true,
+  check_for_updates_on_startup: true,
+  show_in_menu_bar: false,
+  show_profile_name_in_menu_bar: false,
+  unsafe_ui: false
+};
+
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
   {
@@ -187,27 +195,15 @@ const rules: KarabinerRules[] = [
   }),
 ];
 
-fs.writeFileSync(
-  "build/karabiner.json",
-  JSON.stringify(
-    {
-      global: {
-        ask_for_confirmation_before_quitting: true,
-        check_for_updates_on_startup: true,
-        show_in_menu_bar: false,
-        show_profile_name_in_menu_bar: false,
-        unsafe_ui: false
-      },
-      profiles: [
-        {
-          name: "Default",
-          complex_modifications: {
-            rules,
-          },
-        },
-      ],
-    },
-    sortObjectKeys,
-    4
-  )
-);
+const profile = {
+  name: "Default",
+  selected: true, // this is debatable
+  complex_modifications: { rules },
+};
+
+const config = {
+  global: settings,
+  profiles: [profile],
+};
+
+fs.writeFileSync("build/karabiner.json", JSON.stringify(config, sortObjectKeys, 4));
