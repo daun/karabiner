@@ -76,17 +76,33 @@ const rules: KarabinerRules[] = [
 
     // w = [W]indow Sizing via Raycast Window Management
     w: {
+      // Arrows: halfs
+      up_arrow: window("top-half"),
+      down_arrow:  window("bottom-half"),
+      left_arrow: window("left-half"),
+      right_arrow: window("right-half"),
+
+      // Semantic: full, center
+      f: window("maximize"),
+      c: window("reasonable-size"),
+
+      // HJKL: halfs
+      k: window("top-half"),
+      j: window("bottom-half"),
+      h: window("left-half"),
+      l: window("right-half"),
+
+      // UIO = thirds
       u: window("first-third"),
       i: window("center-third"),
       n: window("first-two-thirds"),
       m: window("last-two-thirds"),
       o: window("last-third"),
-      k: window("top-half"),
-      j: window("bottom-half"),
-      h: window("left-half"),
-      l: window("right-half"),
+
+      // maximize, almost-maximize
       semicolon: window("maximize"),
       quote: window("almost-maximize"),
+
       // comma: hide window
       comma: press("h", ["right_command"]),
     },
