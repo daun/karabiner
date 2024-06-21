@@ -103,6 +103,10 @@ const rules: KarabinerRules[] = [
       semicolon: window("maximize"),
       quote: window("almost-maximize"),
 
+      // minus/plus =  make larger/smaller
+      equal_sign: window("make-larger"),
+      hyphen: window("make-smaller"),
+
       // comma: hide window
       comma: press("h", ["right_command"]),
     },
