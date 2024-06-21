@@ -203,11 +203,26 @@ const fn_function_keys = [
   key("f11", { consumer_key_code: "volume_decrement" }),
   key("f12", { consumer_key_code: "volume_increment" }),
 ];
+
+// Special case for the Mac Mini external keyboard: swap [`] and [§] keys
+const mac_mini_customizations = {
+  identifiers: {
+    is_keyboard: true,
+    product_id: 671,
+    vendor_id: 76
+  },
+  simple_modifications: [
+    key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
+    key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
+  ]
+};
+
 const profile = {
   name: "Default",
   selected: true, // this is debatable
   complex_modifications: { rules },
   fn_function_keys,
+  devices: [mac_mini_customizations]
 };
 
 const config = {
