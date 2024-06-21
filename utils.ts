@@ -234,3 +234,13 @@ export function window(name: string): LayerCommand {
 export function app(name: string): LayerCommand {
   return open(`-a '${name}.app'`);
 }
+
+/**
+ * Shortcut for simple keymapping
+ */
+export function key(key_code: string, to: object): object {
+  return {
+    from: { key_code },
+    to: [to]
+  }
+}
