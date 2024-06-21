@@ -150,6 +150,20 @@ function generateSubLayerVariableName(key: KeyCode) {
 }
 
 /**
+ * Create a device configuration for a keyboard
+ */
+export function createDeviceConfiguration({ product_id, vendor_id }: { product_id: number, vendor_id: number }, options: object): object {
+  return {
+    identifiers: {
+      is_keyboard: true,
+      product_id,
+      vendor_id
+    },
+    ...options
+  };
+}
+
+/**
  * Sort the keys of an object alphabetically
  */
 export function sortObjectKeys(key: string, value: unknown) {

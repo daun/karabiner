@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, window, sortObjectKeys, press, raycast, key } from "./utils";
+import { createHyperSubLayers, app, open, window, sortObjectKeys, press, raycast, key, createDeviceConfiguration } from "./utils";
 
 const settings = {
   ask_for_confirmation_before_quitting: true,
@@ -205,17 +205,18 @@ const fn_function_keys = [
 ];
 
 // Special case for the Mac Mini external keyboard: swap [`] and [§] keys
-const mac_mini_customizations = {
-  identifiers: {
-    is_keyboard: true,
+const mac_mini_customizations = createDeviceConfiguration(
+  {
     product_id: 671,
     vendor_id: 76
   },
-  simple_modifications: [
-    key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
-    key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
-  ]
-};
+  {
+    simple_modifications: [
+      key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
+      key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
+    ]
+  }
+);
 
 const profile = {
   name: "Default",
