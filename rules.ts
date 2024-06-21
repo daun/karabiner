@@ -29,14 +29,14 @@ const rules: KarabinerRules[] = [
     // spacebar: Homerow keyboard navigation
     spacebar: press("spacebar", ["right_control", "right_option", "right_command"]),
 
-    // HJKL: map to arrow keys (currently conflicts with other layers' nested HJKL mappings)
-    // h: press("left_arrow"),
-    // j: press("down_arrow"),
-    // k: press("up_arrow"),
-    // l: press("right_arrow"),
+    // hjkl: map to arrow keys (currently conflicts with other layers' nested HJKL mappings)
+    h: press("left_arrow"),
+    j: press("down_arrow"),
+    k: press("up_arrow"),
+    l: press("right_arrow"),
 
-    // U = [U]nicode symbol search (currently conflicts with other layers' nested U mappings)
-    // u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
+    // u = [U]nicode symbol search (currently conflicts with other layers' nested U mappings)
+    u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
 
     // slash = Search menu items
     slash: raycast("extensions/raycast/navigation/search-menu-items"),
@@ -149,6 +149,7 @@ const rules: KarabinerRules[] = [
       d: raycast("extensions/yakitrak/do-not-disturb/toggle"),
     },
 
+    // (a = [A]ccessibility)
     // v = Mo[v]e which isn't "m" because we want it to be on the left hand
     // so that hjkl work like they do in vim
     v: {
@@ -156,6 +157,7 @@ const rules: KarabinerRules[] = [
       j: press("down_arrow"),
       k: press("up_arrow"),
       l: press("right_arrow"),
+
       // Magicmove via homerow.app
       m: press("f", ["right_control"]),
       // Scroll mode via homerow.app
