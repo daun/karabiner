@@ -211,11 +211,19 @@ const fn_function_keys = [
 ];
 
 // Special case for the Mac Mini external keyboard: swap [`] and [§] keys
-const mac_mini_customizations = createDeviceConfiguration(
+const macmini_customizations = createDeviceConfiguration(
+  { product_id: 671, vendor_id: 76 },
   {
-    product_id: 671,
-    vendor_id: 76
-  },
+    simple_modifications: [
+      key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
+      key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
+    ]
+  }
+);
+
+// Special case for MacBook internal keyboard: swap [`] and [§] keys
+const macbook_customizations = createDeviceConfiguration(
+  { product_id: 834, vendor_id: 1452 },
   {
     simple_modifications: [
       key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
@@ -229,7 +237,7 @@ const profile = {
   selected: true, // this is debatable
   complex_modifications: { rules },
   fn_function_keys,
-  devices: [mac_mini_customizations]
+  devices: [macmini_customizations, macbook_customizations]
 };
 
 const config = {
