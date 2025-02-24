@@ -210,26 +210,20 @@ const fn_function_keys = [
   key("f12", { consumer_key_code: "volume_increment" }),
 ];
 
-// Special case for the Mac Mini external keyboard: swap [`] and [§] keys
+// Swap [`] and [§] keys for external keyboards
+const switch_accent_and_backslash = [
+  key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
+  key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
+]
+
 const macmini_customizations = createDeviceConfiguration(
   { product_id: 671, vendor_id: 76 },
-  {
-    simple_modifications: [
-      key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
-      key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
-    ]
-  }
+  { simple_modifications: switch_accent_and_backslash }
 );
 
-// Special case for MacBook internal keyboard: swap [`] and [§] keys
 const macbook_customizations = createDeviceConfiguration(
   { product_id: 834, vendor_id: 1452 },
-  {
-    simple_modifications: [
-      key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
-      key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
-    ]
-  }
+  { simple_modifications: switch_accent_and_backslash }
 );
 
 const profile = {
