@@ -3,8 +3,8 @@
 Forked from [mxstbr/karabiner](https://github.com/mxstbr/karabiner)
 
 - Maintainable and type-safe Karabiner configuration
-- Custom configuration DSL & generator
-- Customize rules and sublayers in `rules.ts`
+- Rules generated with `karabiner.ts`
+- Customize rules and leader modes in `src/rules.ts`
 
 ## Installation
 
@@ -44,7 +44,7 @@ dependencies.
 npm ci
 ```
 
-Builds `karabiner.json` from `rules.ts`.
+Builds `karabiner.json` from `src/rules.ts`.
 
 ```sh
 npm run build

@@ -20,8 +20,8 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "build": "tsx rules.ts",
-    "watch": "tsx watch rules.ts",
+    "build": "tsx src/rules.ts",
+    "watch": "tsx watch src/rules.ts",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write --ignore-unknown .",
     "format:check": "prettier --check --ignore-unknown .",
