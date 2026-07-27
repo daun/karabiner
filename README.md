@@ -30,7 +30,7 @@ Where `~/personal/karabiner` is your local path to where you cloned the reposito
   <summary>Reload Karabiner manually</summary>
 
 ```sh
-launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server
+launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.karabiner_console_user_server
 ```
 
 </details>
