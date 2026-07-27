@@ -1,15 +1,22 @@
-import fs from "fs";
-import { KarabinerRules } from "./types";
+import fs from "node:fs";
 import {
-  createHyperSubLayers,
+  hyperLayer,
+  ifVar,
+  map,
+  rule,
+  type FromKeyParam,
+  type LayerKeyParam,
+  type ManipulatorMap,
+} from "karabiner.ts";
+import {
   app,
+  createDeviceConfiguration,
+  key,
   open,
-  window,
-  sortObjectKeys,
   press,
   raycast,
-  key,
-  createDeviceConfiguration,
+  sortObjectKeys,
+  window,
 } from "./utils";
 
 const settings = {
@@ -20,199 +27,164 @@ const settings = {
   unsafe_ui: false,
 };
 
-const rules: KarabinerRules[] = [
-  // Define the Hyper key itself
-  {
-    description: "Hyper Key (⌃⌥⇧⌘)",
-    manipulators: [
-      {
-        description: "Caps Lock -> Hyper Key",
-        from: { key_code: "caps_lock", modifiers: { optional: ["any"] } },
-        to: [{ set_variable: { name: "hyper", value: 1 } }],
-        to_after_key_up: [{ set_variable: { name: "hyper", value: 0 } }],
-        to_if_alone: [{ key_code: "escape" }],
-        type: "basic",
-      },
-    ],
-  },
-  ...createHyperSubLayers({
-    // spacebar: Homerow keyboard navigation
-    spacebar: press("spacebar", [
-      "right_control",
-      "right_option",
-      "right_command",
-    ]),
-    // semicolon: Homerow item search
-    semicolon: press("spacebar", [
-      "right_shift",
-      "right_option",
-      "right_command",
-    ]),
+const hyperModifiers = "⌘⌥⌃⇧";
 
-    // hjkl: map to arrow keys (currently conflicts with other layers' nested HJKL mappings)
+function withHyper(key: FromKeyParam) {
+  return map(key, hyperModifiers, "any");
+}
+
+function leader(
+  key: LayerKeyParam,
+  name: string,
+  manipulators: ManipulatorMap,
+) {
+  return hyperLayer(key, `leader_${key}`)
+    .description(`Leader - ${name}`)
+    .leaderMode()
+    .notification(name)
+    .manipulators(manipulators);
+}
+
+const ruleBuilders = [
+  rule("Hyper Key (⌃⌥⇧⌘)").manipulators([
+    map("caps_lock", { optional: "any" })
+      .toHyper()
+      .toIfAlone("escape")
+      .condition(ifVar("__layer", 1).unless())
+      .description("Caps Lock -> Hyper Key"),
+  ]),
+
+  rule("Direct Hyper shortcuts").manipulators([
+    // Homerow keyboard navigation
+    withHyper("spacebar").to(
+      press("spacebar", ["right_control", "right_option", "right_command"]),
+    ),
+    // Homerow item search
+    withHyper("semicolon").to(
+      press("spacebar", ["right_shift", "right_option", "right_command"]),
+    ),
+
+    // Arrow keys
+    withHyper("h").to(press("left_arrow")),
+    withHyper("j").to(press("down_arrow")),
+    withHyper("k").to(press("up_arrow")),
+    withHyper("l").to(press("right_arrow")),
+
+    // Unicode symbol and menu-item search
+    withHyper("u").to(raycast("extensions/mmazzarolo/unicode-symbols/index")),
+    withHyper("slash").to(
+      raycast("extensions/raycast/navigation/search-menu-items"),
+    ),
+  ]),
+
+  leader("b", "Browse", {
+    g: open("https://github.com"),
+    m: open("https://mondediplo.com"),
+    n: open("https://www.theguardian.com/international"),
+    r: open("https://reddit.com"),
+    t: open("https://twitter.com"),
+    y: open("https://news.ycombinator.com"),
+  }),
+
+  leader("o", "Open", {
+    1: app("1Password"),
+    a: app("Figma"),
+    b: app("Google Chrome"),
+    c: app("Calendar"),
+    d: app("Adobe InDesign 2024"),
+    e: app("Spark"),
+    f: app("Finder"),
+    g: app("Tower"),
+    i: app("iTerm"),
+    m: app("Messages"),
+    n: app("Notion"),
+    p: app("Spotify"),
+    r: app("Around"),
+    s: app("Slack"),
+    t: app("Things3"),
+    v: app("Visual Studio Code"),
+    z: app("zoom.us"),
+  }),
+
+  leader("w", "Window", {
+    // Arrows and HJKL: halves
+    up_arrow: window("top-half"),
+    down_arrow: window("bottom-half"),
+    left_arrow: window("left-half"),
+    right_arrow: window("right-half"),
+    k: window("top-half"),
+    j: window("bottom-half"),
+    h: window("left-half"),
+    l: window("right-half"),
+
+    // Full and centered
+    f: window("maximize"),
+    c: window("reasonable-size"),
+
+    // UIO: thirds
+    u: window("first-third"),
+    i: window("center-third"),
+    n: window("first-two-thirds"),
+    m: window("last-two-thirds"),
+    o: window("last-third"),
+
+    semicolon: window("maximize"),
+    quote: window("almost-maximize"),
+    equal_sign: window("make-larger"),
+    hyphen: window("make-smaller"),
+    comma: press("h", ["right_command"]),
+  }),
+
+  leader("d", "Desktop", {
+    // Move the window between desktops
+    j: window("previous-desktop"),
+    k: window("next-desktop"),
+    // Go to the previous or next desktop
+    h: press("left_arrow", ["right_control"]),
+    l: press("right_arrow", ["right_control"]),
+  }),
+
+  leader("s", "System", {
+    u: press("volume_increment"),
+    j: press("volume_decrement"),
+    i: press("display_brightness_increment"),
+    k: press("display_brightness_decrement"),
+    l: press("q", ["right_control", "right_command"]),
+    e: press("spacebar", ["right_control", "right_command"]),
+    d: raycast("extensions/yakitrak/do-not-disturb/toggle"),
+  }),
+
+  leader("v", "Move", {
     h: press("left_arrow"),
     j: press("down_arrow"),
     k: press("up_arrow"),
     l: press("right_arrow"),
+    // Magicmove and scroll mode via homerow.app
+    m: press("f", ["right_control"]),
+    s: press("j", ["right_control"]),
+    d: press("d", ["right_shift", "right_command"]),
+    u: press("page_down"),
+    i: press("page_up"),
+  }),
 
-    // u = [U]nicode symbol search (currently conflicts with other layers' nested U mappings)
+  leader("c", "Music", {
+    p: press("play_or_pause"),
+    n: press("fastforward"),
+    b: press("rewind"),
+  }),
+
+  leader("r", "Raycast", {
+    a: raycast("extensions/abielzulio/chatgpt/ask"),
+    c: raycast("extensions/raycast/system/open-camera"),
+    e: raycast("extensions/raycast/emoji-symbols/search-emoji-symbols"),
+    h: raycast("extensions/raycast/clipboard-history/clipboard-history"),
+    n: raycast("script-commands/dismiss-notifications"),
+    p: raycast("extensions/raycast/raycast/confetti"),
     u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
-
-    // slash = Search menu items
-    slash: raycast("extensions/raycast/navigation/search-menu-items"),
-
-    // b = [B]rowse site
-    b: {
-      g: open("https://github.com"),
-      m: open("https://mondediplo.com"),
-      n: open("https://www.theguardian.com/international"),
-      r: open("https://reddit.com"),
-      t: open("https://twitter.com"),
-      y: open("https://news.ycombinator.com"),
-    },
-
-    // o = [O]pen application
-    o: {
-      // "M"essages
-      1: app("1Password"),
-      a: app("Figma"),
-      b: app("Google Chrome"),
-      c: app("Calendar"),
-      d: app("Adobe InDesign 2024"),
-      e: app("Spark"),
-      f: app("Finder"),
-      g: app("Tower"),
-      i: app("iTerm"),
-      m: app("Messages"),
-      n: app("Notion"),
-      p: app("Spotify"),
-      // p: app("Adobe Photoshop 2024"),
-      r: app("Around"),
-      s: app("Slack"),
-      t: app("Things3"),
-      v: app("Visual Studio Code"),
-      z: app("zoom.us"),
-    },
-
-    // w = [W]indow Sizing via Raycast Window Management
-    w: {
-      // Arrows: halfs
-      up_arrow: window("top-half"),
-      down_arrow: window("bottom-half"),
-      left_arrow: window("left-half"),
-      right_arrow: window("right-half"),
-
-      // Semantic: full, center
-      f: window("maximize"),
-      c: window("reasonable-size"),
-
-      // HJKL: halfs
-      k: window("top-half"),
-      j: window("bottom-half"),
-      h: window("left-half"),
-      l: window("right-half"),
-
-      // UIO = thirds
-      u: window("first-third"),
-      i: window("center-third"),
-      n: window("first-two-thirds"),
-      m: window("last-two-thirds"),
-      o: window("last-third"),
-
-      // maximize, almost-maximize
-      semicolon: window("maximize"),
-      quote: window("almost-maximize"),
-
-      // minus/plus =  make larger/smaller
-      equal_sign: window("make-larger"),
-      hyphen: window("make-smaller"),
-
-      // comma: hide window
-      comma: press("h", ["right_command"]),
-    },
-
-    // w = (currently inactive) "Window" via Raycast Window Management
-    // w: {
-    //   // Previous tab
-    //   u: press("tab", ["right_control", "right_shift"]),
-    //   // Next tab
-    //   i: press("tab", ["right_control"]),
-    //   // Window: next
-    //   n: press("grave_accent_and_tilde", ["right_command"]),
-    //   // Window: back
-    //   b: press("open_bracket", ["right_command"]),
-    //   // Window: forward (no literal connection: f and n are already taken)
-    //   m: press("close_bracket", ["right_command"]),
-    //   // Window: Next display
-    //   d: press("right_arrow", ["right_control", "right_option", "right_command"]),
-    // },
-
-    // d = "Desktop"
-    d: {
-      // j/k: Move window between desktops
-      j: window("previous-desktop"),
-      k: window("next-desktop"),
-      // h/l: Go to previous/next desktop
-      h: press("left_arrow", ["right_control"]),
-      l: press("right_arrow", ["right_control"]),
-    },
-
-    // s = [S]ystem
-    s: {
-      // u/j: Volume
-      u: press("volume_increment"),
-      j: press("volume_decrement"),
-      // i/k: Brightness
-      i: press("display_brightness_increment"),
-      k: press("display_brightness_decrement"),
-      // l: Lock screen
-      l: press("q", ["right_control", "right_command"]),
-      // e: Emoji picker
-      e: press("spacebar", ["right_control", "right_command"]),
-      // d: Do not disturb toggle
-      d: raycast("extensions/yakitrak/do-not-disturb/toggle"),
-    },
-
-    // (a = [A]ccessibility)
-    // v = Mo[v]e which isn't "m" because we want it to be on the left hand
-    // so that hjkl work like they do in vim
-    v: {
-      h: press("left_arrow"),
-      j: press("down_arrow"),
-      k: press("up_arrow"),
-      l: press("right_arrow"),
-
-      // Magicmove via homerow.app
-      m: press("f", ["right_control"]),
-      // Scroll mode via homerow.app
-      s: press("j", ["right_control"]),
-      d: press("d", ["right_shift", "right_command"]),
-      u: press("page_down"),
-      i: press("page_up"),
-    },
-
-    // c = Musi*c* which isn't "m" because we want it to be on the left hand
-    c: {
-      p: press("play_or_pause"),
-      n: press("fastforward"),
-      b: press("rewind"),
-    },
-
-    // r = "Raycast"
-    r: {
-      // a: raycast("extensions/raycast/raycast-ai/ai-chat"),
-      a: raycast("extensions/abielzulio/chatgpt/ask"),
-      c: raycast("extensions/raycast/system/open-camera"),
-      e: raycast("extensions/raycast/emoji-symbols/search-emoji-symbols"),
-      h: raycast("extensions/raycast/clipboard-history/clipboard-history"),
-      // l: raycast("extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"),
-      n: raycast("script-commands/dismiss-notifications"),
-      p: raycast("extensions/raycast/raycast/confetti"),
-      // s: raycast("extensions/peduarte/silent-mention/index"),
-      u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
-    },
   }),
 ];
+
+const rules = ruleBuilders.map((builder) => builder.build());
 
 // Map function keys to re-enable brightness and volume controls
 const fn_function_keys = [
@@ -248,8 +220,7 @@ const macbook_customizations = createDeviceConfiguration(
 
 const profile = {
   name: "Default",
-  selected: true, // this is debatable
-  // Keep Karabiner from asking for the virtual keyboard type after each deploy.
+  selected: true,
   virtual_hid_keyboard: { keyboard_type_v2: "iso" },
   complex_modifications: { rules },
   fn_function_keys,

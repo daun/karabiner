@@ -68,6 +68,19 @@ Build the config and reload the config in a single command.
 npm run deploy
 ```
 
+### Leader modes
+
+Multi-key commands use one-shot leader modes. Press Caps Lock together with a
+leader key, release them, and then press the action key. For example:
+
+- Caps Lock, B, G opens GitHub.
+- Caps Lock, O, V opens Visual Studio Code.
+- Caps Lock, W, H moves the current window to the left half.
+
+The active leader appears as a Karabiner notification and closes after a
+successful action. Press Escape or Caps Lock to cancel it. Direct Hyper
+shortcuts such as Caps Lock + H/J/K/L remain immediate chords.
+
 Type-check, check formatting, and rebuild the generated configuration.
 
 ```sh
