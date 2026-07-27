@@ -249,6 +249,8 @@ const macbook_customizations = createDeviceConfiguration(
 const profile = {
   name: "Default",
   selected: true, // this is debatable
+  // Keep Karabiner from asking for the virtual keyboard type after each deploy.
+  virtual_hid_keyboard: { keyboard_type_v2: "iso" },
   complex_modifications: { rules },
   fn_function_keys,
   devices: [macmini_customizations, macbook_customizations],
