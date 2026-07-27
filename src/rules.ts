@@ -1,12 +1,12 @@
 import fs from "node:fs";
 import {
+  type FromKeyParam,
   hyperLayer,
   ifVar,
-  map,
-  rule,
-  type FromKeyParam,
   type LayerKeyParam,
   type ManipulatorMap,
+  map,
+  rule,
 } from "karabiner.ts";
 import {
   app,

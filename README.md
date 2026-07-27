@@ -11,20 +11,8 @@ Forked from [mxstbr/karabiner](https://github.com/mxstbr/karabiner)
 1. Install & start [Karabiner Elements](https://karabiner-elements.pqrs.org/)
 2. Clone this repository
 3. Run `npm install`
-4. Delete the default `~/.config/karabiner` folder
-5. Create a symlink using `npm run bootstrap` (or use the manual command below)
-6. Reload Karabiner config using `npm run reload` (or use the manual command below)
-
-<details>
-  <summary>Create symlink manually</summary>
-
-```sh
-ln -ns ~/personal/karabiner/build ~/.config
-```
-
-Where `~/personal/karabiner` is your local path to where you cloned the repository.
-
-</details>
+4. Let chezmoi link `build` to `~/.config/karabiner`
+5. Build and reload the configuration using `npm run deploy`
 
 <details>
   <summary>Reload Karabiner manually</summary>
@@ -81,7 +69,7 @@ The active leader appears as a Karabiner notification and closes after a
 successful action. Press Escape or Caps Lock to cancel it. Direct Hyper
 shortcuts such as Caps Lock + H/J/K/L remain immediate chords.
 
-Type-check, check formatting, and rebuild the generated configuration.
+Type-check, run Biome, and rebuild the generated configuration.
 
 ```sh
 npm run verify

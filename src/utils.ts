@@ -1,9 +1,9 @@
 import {
-  to$,
-  toKey,
   type Modifier,
   type ToEvent,
   type ToKeyParam,
+  to$,
+  toKey,
 } from "karabiner.ts";
 
 export function createDeviceConfiguration(
@@ -21,7 +21,7 @@ export function createDeviceConfiguration(
 }
 
 export function sortObjectKeys(_key: string, value: unknown) {
-  if (value instanceof Array) return value;
+  if (Array.isArray(value)) return value;
   if (!(value instanceof Object)) return value;
   const object = value as Record<string, unknown>;
   return Object.keys(object)
