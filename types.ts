@@ -35,11 +35,8 @@ type FrontMostApplicationCondition = {
 
 type DeviceCondition = {
   type:
-    | "device_if"
-    | "device_unless"
-    | "device_exists_if"
-    | "device_exists_unless";
-  identifiers: Identifiers;
+    "device_if" | "device_unless" | "device_exists_if" | "device_exists_unless";
+  identifiers: Identifiers[];
   description?: string;
 };
 
@@ -93,6 +90,27 @@ export interface SimultaneousOptions {
   detect_key_down_uninterruptedly?: boolean;
 }
 
+export type KeyModifier =
+  | "caps_lock"
+  | "left_command"
+  | "left_control"
+  | "left_option"
+  | "left_shift"
+  | "right_command"
+  | "right_control"
+  | "right_option"
+  | "right_shift"
+  | "fn"
+  | "command"
+  | "control"
+  | "option"
+  | "shift"
+  | "left_alt"
+  | "left_gui"
+  | "right_alt"
+  | "right_gui"
+  | "any";
+
 export interface From {
   key_code?: KeyCode;
   simultaneous?: SimultaneousFrom[];
@@ -101,13 +119,13 @@ export interface From {
 }
 
 export interface Modifiers {
-  optional?: string[];
-  mandatory?: string[];
+  optional?: KeyModifier[];
+  mandatory?: KeyModifier[];
 }
 
 export interface To {
   key_code?: KeyCode;
-  modifiers?: string[];
+  modifiers?: KeyModifier[];
   shell_command?: string;
   set_variable?: {
     name: string;
@@ -134,18 +152,6 @@ export interface MouseKey {
 export interface SoftwareFunction {
   iokit_power_management_sleep_system?: {};
 }
-
-export type KeyModifier =
-  | "caps_lock"
-  | "left_command"
-  | "left_control"
-  | "left_option"
-  | "left_shift"
-  | "right_command"
-  | "right_control"
-  | "right_option"
-  | "right_shift"
-  | "fn";
 
 export type KeyCode =
   | "caps_lock"
