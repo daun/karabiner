@@ -21,7 +21,7 @@ type HyperKeySublayer = {
 export function createHyperSubLayer(
   sublayer_key: KeyCode,
   commands: HyperKeySublayer,
-  allSubLayerVariables: string[]
+  allSubLayerVariables: string[],
 ): Manipulator[] {
   const subLayerVariableName = generateSubLayerVariableName(sublayer_key);
 
@@ -60,7 +60,7 @@ export function createHyperSubLayer(
       conditions: [
         ...allSubLayerVariables
           .filter(
-            (subLayerVariable) => subLayerVariable !== subLayerVariableName
+            (subLayerVariable) => subLayerVariable !== subLayerVariableName,
           )
           .map((subLayerVariable) => ({
             type: "variable_if" as const,
@@ -93,7 +93,7 @@ export function createHyperSubLayer(
             value: 1,
           },
         ],
-      })
+      }),
     ),
   ];
 }
@@ -130,12 +130,11 @@ export function createHyperSubLayers(subLayers: {
                   name: "hyper",
                   value: 1,
                 },
-                ...allSubLayerVariables
-                  .map((subLayerVariable) => ({
-                    type: "variable_if" as const,
-                    name: subLayerVariable,
-                    value: 0,
-                  })),
+                ...allSubLayerVariables.map((subLayerVariable) => ({
+                  type: "variable_if" as const,
+                  name: subLayerVariable,
+                  value: 0,
+                })),
               ],
             },
           ],
@@ -145,9 +144,9 @@ export function createHyperSubLayers(subLayers: {
           manipulators: createHyperSubLayer(
             key as KeyCode,
             value,
-            allSubLayerVariables
+            allSubLayerVariables,
           ),
-        }
+        },
   );
 }
 
@@ -158,14 +157,17 @@ function generateSubLayerVariableName(key: KeyCode) {
 /**
  * Create a device configuration for a keyboard
  */
-export function createDeviceConfiguration({ product_id, vendor_id }: { product_id: number, vendor_id: number }, options: object): object {
+export function createDeviceConfiguration(
+  { product_id, vendor_id }: { product_id: number; vendor_id: number },
+  options: object,
+): object {
   return {
     identifiers: {
       is_keyboard: true,
       product_id,
-      vendor_id
+      vendor_id,
     },
-    ...options
+    ...options,
   };
 }
 
@@ -175,41 +177,48 @@ export function createDeviceConfiguration({ product_id, vendor_id }: { product_i
 export function sortObjectKeys(key: string, value: unknown) {
   if (value instanceof Array) return value;
   if (!(value instanceof Object)) return value;
-  return Object.keys(value).sort().reduce((sorted, key) => {
-    sorted[key] = value[key];
-    return sorted;
-  }, {});
+  const object = value as Record<string, unknown>;
+  return Object.keys(object)
+    .sort()
+    .reduce<Record<string, unknown>>((sorted, objectKey) => {
+      sorted[objectKey] = object[objectKey];
+      return sorted;
+    }, {});
 }
 
 /**
  * Shortcut for key press
  */
-export function press(key_code: KeyCode, modifiers?: KeyModifier[]): LayerCommand {
+export function press(
+  key_code: KeyCode,
+  modifiers?: KeyModifier[],
+): LayerCommand {
   return {
-    to: [{ key_code, modifiers } ],
-    description: `Press ${key_code}`
+    to: [{ key_code, modifiers }],
+    description: `Press ${key_code}`,
   };
 }
 
 /**
  * Shortcut for "open" shell command
  */
-export function open(what: string): LayerCommand {
+export function open(...what: string[]): LayerCommand {
   return {
-    to: [
-      {
-        shell_command: `open ${what}`,
-      },
-    ],
-    description: `Open ${what}`,
+    to: what.map((w) => ({
+      shell_command: `open ${w}`,
+    })),
+    description: `Open ${what.join(" & ")}`,
   };
 }
 
 /**
  * Shortcut for executing raycast commands
  */
-export function raycast(command: string, background: boolean = false): LayerCommand {
-  const params = background ? '?launchType=background' : '';
+export function raycast(
+  command: string,
+  background: boolean = false,
+): LayerCommand {
+  const params = background ? "?launchType=background" : "";
   return {
     to: [
       {
@@ -221,16 +230,27 @@ export function raycast(command: string, background: boolean = false): LayerComm
 }
 
 /**
- * Shortcut for managing window sizing with Rectangle
+ * Utility function to create a LayerCommand from a tagged template literal
+ * where each line is a shell command to be executed.
  */
-export function rectangle(name: string): LayerCommand {
+export function shell(
+  strings: TemplateStringsArray,
+  ...values: unknown[]
+): LayerCommand {
+  const commands = strings.reduce((acc, str, i) => {
+    const value = i < values.length ? String(values[i]) : "";
+    const lines = (str + value)
+      .split("\n")
+      .filter((line) => line.trim() !== "");
+    acc.push(...lines);
+    return acc;
+  }, [] as string[]);
+
   return {
-    to: [
-      {
-        shell_command: `open -g rectangle://execute-action?name=${name}`,
-      },
-    ],
-    description: `Window: ${name}`,
+    to: commands.map((command) => ({
+      shell_command: command.trim(),
+    })),
+    description: commands.join(" && "),
   };
 }
 
@@ -261,6 +281,6 @@ export function app(name: string): LayerCommand {
 export function key(key_code: string, to: object): object {
   return {
     from: { key_code },
-    to: [to]
-  }
+    to: [to],
+  };
 }

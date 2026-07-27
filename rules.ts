@@ -1,6 +1,16 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, window, sortObjectKeys, press, raycast, key, createDeviceConfiguration } from "./utils";
+import {
+  createHyperSubLayers,
+  app,
+  open,
+  window,
+  sortObjectKeys,
+  press,
+  raycast,
+  key,
+  createDeviceConfiguration,
+} from "./utils";
 
 const settings = {
   ask_for_confirmation_before_quitting: true,
@@ -27,7 +37,17 @@ const rules: KarabinerRules[] = [
   },
   ...createHyperSubLayers({
     // spacebar: Homerow keyboard navigation
-    spacebar: press("spacebar", ["right_control", "right_option", "right_command"]),
+    spacebar: press("spacebar", [
+      "right_control",
+      "right_option",
+      "right_command",
+    ]),
+    // semicolon: Homerow item search
+    semicolon: press("spacebar", [
+      "right_shift",
+      "right_option",
+      "right_command",
+    ]),
 
     // hjkl: map to arrow keys (currently conflicts with other layers' nested HJKL mappings)
     h: press("left_arrow"),
@@ -78,7 +98,7 @@ const rules: KarabinerRules[] = [
     w: {
       // Arrows: halfs
       up_arrow: window("top-half"),
-      down_arrow:  window("bottom-half"),
+      down_arrow: window("bottom-half"),
       left_arrow: window("left-half"),
       right_arrow: window("right-half"),
 
@@ -214,16 +234,16 @@ const fn_function_keys = [
 const switch_accent_and_backslash = [
   key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
   key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
-]
+];
 
 const macmini_customizations = createDeviceConfiguration(
   { product_id: 671, vendor_id: 76 },
-  { simple_modifications: switch_accent_and_backslash }
+  { simple_modifications: switch_accent_and_backslash },
 );
 
 const macbook_customizations = createDeviceConfiguration(
   { product_id: 834, vendor_id: 1452 },
-  { simple_modifications: switch_accent_and_backslash }
+  { simple_modifications: switch_accent_and_backslash },
 );
 
 const profile = {
@@ -231,15 +251,15 @@ const profile = {
   selected: true, // this is debatable
   complex_modifications: { rules },
   fn_function_keys,
-  devices: [macmini_customizations, macbook_customizations]
+  devices: [macmini_customizations, macbook_customizations],
 };
 
 const config = {
   global: settings,
-  profiles: [profile]
+  profiles: [profile],
 };
 
 fs.writeFileSync(
   "build/karabiner.json",
-  JSON.stringify(config, sortObjectKeys, 4)
+  JSON.stringify(config, sortObjectKeys, 4),
 );
