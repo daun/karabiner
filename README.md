@@ -18,29 +18,30 @@ Forked from [mxstbr/karabiner](https://github.com/mxstbr/karabiner)
 <details>
   <summary>Create symlink manually</summary>
 
-  ```sh
-  ln -ns ~/personal/karabiner/build ~/.config
-  ```
+```sh
+ln -ns ~/personal/karabiner/build ~/.config
+```
 
-  Where `~/personal/karabiner` is your local path to where you cloned the repository.
+Where `~/personal/karabiner` is your local path to where you cloned the repository.
 
 </details>
 
 <details>
   <summary>Reload Karabiner manually</summary>
 
-  ```sh
-  launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server
-  ```
+```sh
+launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server
+```
 
 </details>
 
 ## Development
 
-Install dependencies.
+Use Node.js 26 (the exact version is in `.node-version`) and npm 12, then install
+dependencies.
 
 ```sh
-npm install
+npm ci
 ```
 
 Builds `karabiner.json` from `rules.ts`.
@@ -65,6 +66,12 @@ Build the config and reload the config in a single command.
 
 ```sh
 npm run deploy
+```
+
+Type-check, check formatting, and rebuild the generated configuration.
+
+```sh
+npm run verify
 ```
 
 ## License
