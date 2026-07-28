@@ -53,60 +53,13 @@
                         "description": "Direct Hyper shortcuts",
                         "manipulators": [
                             {
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command",
-                                            "option",
-                                            "control",
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
+                                "conditions": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "right_control",
-                                            "right_option",
-                                            "right_command"
-                                        ]
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command",
-                                            "option",
-                                            "control",
-                                            "shift"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "right_shift",
-                                            "right_option",
-                                            "right_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
@@ -129,6 +82,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -151,6 +111,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -173,6 +140,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -195,6 +169,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -217,6 +198,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "slash",
                                     "modifiers": {
