@@ -275,6 +275,11 @@ const macmini_customizations = createDeviceConfiguration(
   { simple_modifications: switch_accent_and_backslash },
 );
 
+const magic_keyboard_customizations = createDeviceConfiguration(
+  { product_id: 801, vendor_id: 76 },
+  { simple_modifications: switch_accent_and_backslash },
+);
+
 const macbook_customizations = createDeviceConfiguration(
   { product_id: 834, vendor_id: 1452 },
   { simple_modifications: switch_accent_and_backslash },
@@ -286,7 +291,11 @@ const profile = {
   virtual_hid_keyboard: { keyboard_type_v2: "iso" },
   complex_modifications: { rules },
   fn_function_keys,
-  devices: [macmini_customizations, macbook_customizations],
+  devices: [
+    macmini_customizations,
+    magic_keyboard_customizations,
+    macbook_customizations,
+  ],
 };
 
 const config = {
