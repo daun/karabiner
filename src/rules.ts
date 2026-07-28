@@ -29,20 +29,34 @@ const settings = {
 
 const hyperModifiers = "⌘⌥⌃⇧";
 
+type HyperModeBehavior = "held" | "leader" | "sticky";
+
+/**
+ * Multi-key mode behavior:
+ * - held: keep the mode key pressed while invoking actions (original behavior)
+ * - leader: release the mode key, then invoke one action
+ * - sticky: release the mode key and invoke actions until Escape or Caps Lock
+ */
+const defaultHyperModeBehavior: HyperModeBehavior = "held";
+
 function withHyper(key: FromKeyParam) {
   return map(key, hyperModifiers, "any");
 }
 
-function leader(
+function hyperMode(
   key: LayerKeyParam,
   name: string,
   manipulators: ManipulatorMap,
+  behavior: HyperModeBehavior = defaultHyperModeBehavior,
 ) {
-  return hyperLayer(key, `leader_${key}`)
-    .description(`Leader - ${name}`)
-    .leaderMode()
-    .notification(name)
-    .manipulators(manipulators);
+  const mode = hyperLayer(key, `hyper_mode_${key}`).description(
+    `Hyper mode - ${name}`,
+  );
+
+  if (behavior === "leader") mode.leaderMode();
+  if (behavior === "sticky") mode.leaderMode({ sticky: true });
+
+  return mode.notification(name).manipulators(manipulators);
 }
 
 const ruleBuilders = [
@@ -59,6 +73,7 @@ const ruleBuilders = [
     withHyper("spacebar").to(
       press("spacebar", ["right_control", "right_option", "right_command"]),
     ),
+
     // Homerow item search
     withHyper("semicolon").to(
       press("spacebar", ["right_shift", "right_option", "right_command"]),
@@ -77,7 +92,7 @@ const ruleBuilders = [
     ),
   ]),
 
-  leader("b", "Browse", {
+  hyperMode("b", "Browse", {
     g: open("https://github.com"),
     m: open("https://mondediplo.com"),
     n: open("https://www.theguardian.com/international"),
@@ -86,7 +101,7 @@ const ruleBuilders = [
     y: open("https://news.ycombinator.com"),
   }),
 
-  leader("o", "Open", {
+  hyperMode("o", "Open", {
     1: app("1Password"),
     a: app("Figma"),
     b: app("Google Chrome"),
@@ -106,7 +121,7 @@ const ruleBuilders = [
     z: app("zoom.us"),
   }),
 
-  leader("w", "Window", {
+  hyperMode("w", "Window", {
     // Arrows and HJKL: halves
     up_arrow: window("top-half"),
     down_arrow: window("bottom-half"),
@@ -135,7 +150,7 @@ const ruleBuilders = [
     comma: press("h", ["right_command"]),
   }),
 
-  leader("d", "Desktop", {
+  hyperMode("d", "Desktop", {
     // Move the window between desktops
     j: window("previous-desktop"),
     k: window("next-desktop"),
@@ -144,7 +159,7 @@ const ruleBuilders = [
     l: press("right_arrow", ["right_control"]),
   }),
 
-  leader("s", "System", {
+  hyperMode("s", "System", {
     u: press("volume_increment"),
     j: press("volume_decrement"),
     i: press("display_brightness_increment"),
@@ -154,7 +169,7 @@ const ruleBuilders = [
     d: raycast("extensions/yakitrak/do-not-disturb/toggle"),
   }),
 
-  leader("v", "Move", {
+  hyperMode("v", "Move", {
     h: press("left_arrow"),
     j: press("down_arrow"),
     k: press("up_arrow"),
@@ -167,13 +182,13 @@ const ruleBuilders = [
     i: press("page_up"),
   }),
 
-  leader("c", "Music", {
+  hyperMode("c", "Music", {
     p: press("play_or_pause"),
     n: press("fastforward"),
     b: press("rewind"),
   }),
 
-  leader("r", "Raycast", {
+  hyperMode("r", "Raycast", {
     a: raycast("extensions/abielzulio/chatgpt/ask"),
     c: raycast("extensions/raycast/system/open-camera"),
     e: raycast("extensions/raycast/emoji-symbols/search-emoji-symbols"),

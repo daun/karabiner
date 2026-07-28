@@ -241,12 +241,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Browse",
+                        "description": "Hyper mode - Browse",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -270,7 +270,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_b",
+                                            "name": "hyper_mode_b",
                                             "value": 1
                                         }
                                     },
@@ -282,8 +282,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_b",
+                                            "id": "layer-hyper_mode_b",
                                             "text": "Browse"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_b",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_b",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -292,7 +312,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -308,24 +328,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://github.com"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -333,7 +335,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -349,24 +351,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://mondediplo.com"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -374,7 +358,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -390,24 +374,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://www.theguardian.com/international"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -415,7 +381,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -431,24 +397,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://reddit.com"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -456,7 +404,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -472,24 +420,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://twitter.com"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -497,7 +427,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_b",
+                                        "name": "hyper_mode_b",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -513,100 +443,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open https://news.ycombinator.com"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_b",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_b",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_b",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_b",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -614,12 +450,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Open",
+                        "description": "Hyper mode - Open",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -643,7 +479,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_o",
+                                            "name": "hyper_mode_o",
                                             "value": 1
                                         }
                                     },
@@ -655,8 +491,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_o",
+                                            "id": "layer-hyper_mode_o",
                                             "text": "Open"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_o",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_o",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -665,7 +521,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -681,24 +537,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a '1Password.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -706,7 +544,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -722,24 +560,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Figma.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -747,7 +567,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -763,24 +583,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Google Chrome.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -788,7 +590,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -804,24 +606,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Calendar.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -829,7 +613,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -845,24 +629,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Adobe InDesign 2024.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -870,7 +636,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -886,24 +652,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Spark.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -911,7 +659,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -927,24 +675,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Finder.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -952,7 +682,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -968,24 +698,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Tower.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -993,7 +705,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1009,24 +721,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'iTerm.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1034,7 +728,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1050,24 +744,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Messages.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1075,7 +751,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1091,24 +767,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Notion.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1116,7 +774,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1132,24 +790,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Spotify.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1157,7 +797,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1173,24 +813,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Around.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1198,7 +820,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1214,24 +836,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Slack.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1239,7 +843,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1255,24 +859,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Things3.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1280,7 +866,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1296,24 +882,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'Visual Studio Code.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1321,7 +889,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_o",
+                                        "name": "hyper_mode_o",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1337,100 +905,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -a 'zoom.us.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_o",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_o",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_o",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_o",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1438,12 +912,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Window",
+                        "description": "Hyper mode - Window",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -1467,7 +941,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_w",
+                                            "name": "hyper_mode_w",
                                             "value": 1
                                         }
                                     },
@@ -1479,8 +953,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_w",
+                                            "id": "layer-hyper_mode_w",
                                             "text": "Window"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_w",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_w",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -1489,7 +983,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1505,24 +999,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/top-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1530,7 +1006,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1546,24 +1022,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/bottom-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1571,7 +1029,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1587,24 +1045,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/left-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1612,7 +1052,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1628,24 +1068,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/right-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1653,7 +1075,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1669,24 +1091,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/top-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1694,7 +1098,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1710,24 +1114,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/bottom-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1735,7 +1121,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1751,24 +1137,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/left-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1776,7 +1144,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1792,24 +1160,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/right-half?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1817,7 +1167,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1833,24 +1183,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/maximize?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1858,7 +1190,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1874,24 +1206,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/reasonable-size?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1899,7 +1213,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1915,24 +1229,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/first-third?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1940,7 +1236,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1956,24 +1252,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/center-third?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -1981,7 +1259,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1997,24 +1275,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/first-two-thirds?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2022,7 +1282,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2038,24 +1298,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/last-two-thirds?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2063,7 +1305,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2079,24 +1321,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/last-third?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2104,7 +1328,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2120,24 +1344,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/maximize?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2145,7 +1351,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2161,24 +1367,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/almost-maximize?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2186,7 +1374,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2202,24 +1390,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/make-larger?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2227,7 +1397,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2243,24 +1413,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/make-smaller?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2268,7 +1420,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_w",
+                                        "name": "hyper_mode_w",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2287,100 +1439,6 @@
                                         "modifiers": [
                                             "right_command"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_w",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_w",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_w",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2388,12 +1446,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Desktop",
+                        "description": "Hyper mode - Desktop",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_d",
+                                        "name": "hyper_mode_d",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -2417,7 +1475,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_d",
+                                            "name": "hyper_mode_d",
                                             "value": 1
                                         }
                                     },
@@ -2429,8 +1487,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_d",
+                                            "id": "layer-hyper_mode_d",
                                             "text": "Desktop"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_d",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_d",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -2439,7 +1517,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_d",
+                                        "name": "hyper_mode_d",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2455,24 +1533,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/previous-desktop?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_d",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_d",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2480,7 +1540,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_d",
+                                        "name": "hyper_mode_d",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2496,24 +1556,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open -g raycast://extensions/raycast/window-management/next-desktop?launchType=background"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_d",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_d",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2521,7 +1563,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_d",
+                                        "name": "hyper_mode_d",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2540,24 +1582,6 @@
                                         "modifiers": [
                                             "right_control"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_d",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_d",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2565,7 +1589,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_d",
+                                        "name": "hyper_mode_d",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2584,100 +1608,6 @@
                                         "modifiers": [
                                             "right_control"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_d",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_d",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_d",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_d",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_d",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_d",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_d",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_d",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2685,12 +1615,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - System",
+                        "description": "Hyper mode - System",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -2714,7 +1644,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_s",
+                                            "name": "hyper_mode_s",
                                             "value": 1
                                         }
                                     },
@@ -2726,8 +1656,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_s",
+                                            "id": "layer-hyper_mode_s",
                                             "text": "System"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_s",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_s",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -2736,7 +1686,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2752,24 +1702,6 @@
                                 "to": [
                                     {
                                         "key_code": "volume_increment"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2777,7 +1709,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2793,24 +1725,6 @@
                                 "to": [
                                     {
                                         "key_code": "volume_decrement"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2818,7 +1732,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2834,24 +1748,6 @@
                                 "to": [
                                     {
                                         "key_code": "display_brightness_increment"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2859,7 +1755,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2875,24 +1771,6 @@
                                 "to": [
                                     {
                                         "key_code": "display_brightness_decrement"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2900,7 +1778,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2920,24 +1798,6 @@
                                             "right_control",
                                             "right_command"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2945,7 +1805,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -2965,24 +1825,6 @@
                                             "right_control",
                                             "right_command"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -2990,7 +1832,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_s",
+                                        "name": "hyper_mode_s",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3006,100 +1848,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/yakitrak/do-not-disturb/toggle"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_s",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_s",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_s",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_s",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3107,12 +1855,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Move",
+                        "description": "Hyper mode - Move",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -3136,7 +1884,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_v",
+                                            "name": "hyper_mode_v",
                                             "value": 1
                                         }
                                     },
@@ -3148,8 +1896,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_v",
+                                            "id": "layer-hyper_mode_v",
                                             "text": "Move"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_v",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_v",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -3158,7 +1926,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3174,24 +1942,6 @@
                                 "to": [
                                     {
                                         "key_code": "left_arrow"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3199,7 +1949,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3215,24 +1965,6 @@
                                 "to": [
                                     {
                                         "key_code": "down_arrow"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3240,7 +1972,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3256,24 +1988,6 @@
                                 "to": [
                                     {
                                         "key_code": "up_arrow"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3281,7 +1995,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3297,24 +2011,6 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3322,7 +2018,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3341,24 +2037,6 @@
                                         "modifiers": [
                                             "right_control"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3366,7 +2044,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3385,24 +2063,6 @@
                                         "modifiers": [
                                             "right_control"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3410,7 +2070,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3430,24 +2090,6 @@
                                             "right_shift",
                                             "right_command"
                                         ]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3455,7 +2097,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3471,24 +2113,6 @@
                                 "to": [
                                     {
                                         "key_code": "page_down"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3496,7 +2120,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_v",
+                                        "name": "hyper_mode_v",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3512,100 +2136,6 @@
                                 "to": [
                                     {
                                         "key_code": "page_up"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_v",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_v",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_v",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_v",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3613,12 +2143,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Music",
+                        "description": "Hyper mode - Music",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_c",
+                                        "name": "hyper_mode_c",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -3642,7 +2172,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_c",
+                                            "name": "hyper_mode_c",
                                             "value": 1
                                         }
                                     },
@@ -3654,8 +2184,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_c",
+                                            "id": "layer-hyper_mode_c",
                                             "text": "Music"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_c",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_c",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -3664,7 +2214,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_c",
+                                        "name": "hyper_mode_c",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3680,24 +2230,6 @@
                                 "to": [
                                     {
                                         "key_code": "play_or_pause"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_c",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_c",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3705,7 +2237,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_c",
+                                        "name": "hyper_mode_c",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3721,24 +2253,6 @@
                                 "to": [
                                     {
                                         "key_code": "fastforward"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_c",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_c",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3746,7 +2260,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_c",
+                                        "name": "hyper_mode_c",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3762,100 +2276,6 @@
                                 "to": [
                                     {
                                         "key_code": "rewind"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_c",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_c",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_c",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_c",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_c",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_c",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_c",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_c",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3863,12 +2283,12 @@
                         ]
                     },
                     {
-                        "description": "Leader - Raycast",
+                        "description": "Hyper mode - Raycast",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_unless",
                                         "value": 1
                                     },
@@ -3892,7 +2312,7 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "leader_r",
+                                            "name": "hyper_mode_r",
                                             "value": 1
                                         }
                                     },
@@ -3904,8 +2324,28 @@
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "layer-leader_r",
+                                            "id": "layer-hyper_mode_r",
                                             "text": "Raycast"
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_mode_r",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_notification_message": {
+                                            "id": "layer-hyper_mode_r",
+                                            "text": ""
                                         }
                                     }
                                 ],
@@ -3914,7 +2354,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3930,24 +2370,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/abielzulio/chatgpt/ask"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3955,7 +2377,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3971,24 +2393,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/raycast/system/open-camera"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -3996,7 +2400,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -4012,24 +2416,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -4037,7 +2423,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -4053,24 +2439,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/raycast/clipboard-history/clipboard-history"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -4078,7 +2446,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -4094,24 +2462,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://script-commands/dismiss-notifications"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -4119,7 +2469,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -4135,24 +2485,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/raycast/raycast/confetti"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -4160,7 +2492,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "leader_r",
+                                        "name": "hyper_mode_r",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -4176,100 +2508,6 @@
                                 "to": [
                                     {
                                         "shell_command": "open raycast://extensions/mmazzarolo/unicode-symbols/index"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_r",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "leader_r",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "leader_r",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_notification_message": {
-                                            "id": "layer-leader_r",
-                                            "text": ""
-                                        }
                                     }
                                 ],
                                 "type": "basic"

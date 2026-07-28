@@ -56,18 +56,23 @@ Build the config and reload the config in a single command.
 npm run deploy
 ```
 
-### Leader modes
+### Hyper modes
 
-Multi-key commands use one-shot leader modes. Press Caps Lock together with a
-leader key, release them, and then press the action key. For example:
+Multi-key commands use held layers. Keep Caps Lock and the mode key pressed
+while invoking one or more actions. For example:
 
-- Caps Lock, B, G opens GitHub.
-- Caps Lock, O, V opens Visual Studio Code.
-- Caps Lock, W, H moves the current window to the left half.
+- Hold Caps Lock + B, then press G to open GitHub.
+- Hold Caps Lock + O, then press V to open Visual Studio Code.
+- Hold Caps Lock + W, then press H, L, or F to try several window positions.
 
-The active leader appears as a Karabiner notification and closes after a
-successful action. Press Escape or Caps Lock to cancel it. Direct Hyper
-shortcuts such as Caps Lock + H/J/K/L remain immediate chords.
+The active mode appears as a Karabiner notification and closes when its mode key
+is released. Caps Lock can technically be released after the mode activates,
+but the mode key must remain held.
+
+The `defaultHyperModeBehavior` setting in `src/rules.ts` can switch all modes to
+one-shot `leader` or persistent `sticky` behavior. Individual modes can also
+override the default. Direct Hyper shortcuts such as Caps Lock + H/J/K/L remain
+immediate chords.
 
 Type-check, run Biome, and rebuild the generated configuration.
 
