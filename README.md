@@ -3,28 +3,16 @@
 Forked from [mxstbr/karabiner](https://github.com/mxstbr/karabiner)
 
 - Maintainable and type-safe Karabiner configuration
-- Custom configuration DSL & generator
-- Customize rules and sublayers in `rules.ts`
+- Rules generated with `karabiner.ts`
+- Customize rules and leader modes in `src/rules.ts`
 
 ## Installation
 
 1. Install & start [Karabiner Elements](https://karabiner-elements.pqrs.org/)
 2. Clone this repository
 3. Run `npm install`
-4. Delete the default `~/.config/karabiner` folder
-5. Create a symlink using `npm run bootstrap` (or use the manual command below)
-6. Reload Karabiner config using `npm run reload` (or use the manual command below)
-
-<details>
-  <summary>Create symlink manually</summary>
-
-```sh
-ln -ns ~/personal/karabiner/build ~/.config
-```
-
-Where `~/personal/karabiner` is your local path to where you cloned the repository.
-
-</details>
+4. Let chezmoi link `build` to `~/.config/karabiner`
+5. Build and reload the configuration using `npm run deploy`
 
 <details>
   <summary>Reload Karabiner manually</summary>
@@ -44,7 +32,7 @@ dependencies.
 npm ci
 ```
 
-Builds `karabiner.json` from `rules.ts`.
+Builds `karabiner.json` from `src/rules.ts`.
 
 ```sh
 npm run build
@@ -68,7 +56,25 @@ Build the config and reload the config in a single command.
 npm run deploy
 ```
 
-Type-check, check formatting, and rebuild the generated configuration.
+### Hyper modes
+
+Multi-key commands use held layers. Keep Caps Lock and the mode key pressed
+while invoking one or more actions. For example:
+
+- Hold Caps Lock + B, then press G to open GitHub.
+- Hold Caps Lock + O, then press V to open Visual Studio Code.
+- Hold Caps Lock + W, then press H, L, or F to try several window positions.
+
+The active mode appears as a Karabiner notification and closes when its mode key
+is released. Caps Lock can technically be released after the mode activates,
+but the mode key must remain held.
+
+The `defaultHyperModeBehavior` setting in `src/rules.ts` can switch all modes to
+one-shot `leader` or persistent `sticky` behavior. Individual modes can also
+override the default. Direct Hyper shortcuts such as Caps Lock + H/J/K/L remain
+immediate chords.
+
+Type-check, run Biome, and rebuild the generated configuration.
 
 ```sh
 npm run verify
