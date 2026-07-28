@@ -59,6 +59,51 @@ function hyperMode(
   return mode.notification(name).manipulators(manipulators);
 }
 
+function modeHudCommand(text: string) {
+  const hammerspoonInstalled =
+    '[ -d /Applications/Hammerspoon.app ] || [ -d "$HOME/Applications/Hammerspoon.app" ]';
+
+  if (text === "") {
+    return `if ${hammerspoonInstalled}; then /usr/bin/open -g 'hammerspoon://karabiner-mode'; fi`;
+  }
+
+  const hammerspoonUrl = `hammerspoon://karabiner-mode?name=${encodeURIComponent(text)}`;
+  const appleScriptText = text.replaceAll("\\", "\\\\").replaceAll('"', '\\"');
+
+  return `if ${hammerspoonInstalled}; then /usr/bin/open -g '${hammerspoonUrl}'; else /usr/bin/osascript -e 'display notification "${appleScriptText}" with title "Hyper mode"'; fi`;
+}
+
+function replaceModeNotifications<T>(value: T): T {
+  if (Array.isArray(value)) {
+    return value.map(replaceModeNotifications) as T;
+  }
+
+  if (value === null || typeof value !== "object") return value;
+
+  const object = value as Record<string, unknown>;
+  const notification = object.set_notification_message;
+
+  if (
+    notification !== null &&
+    typeof notification === "object" &&
+    "text" in notification &&
+    typeof notification.text === "string"
+  ) {
+    const { set_notification_message: _, ...rest } = object;
+    return {
+      ...rest,
+      shell_command: modeHudCommand(notification.text),
+    } as T;
+  }
+
+  return Object.fromEntries(
+    Object.entries(object).map(([key, child]) => [
+      key,
+      replaceModeNotifications(child),
+    ]),
+  ) as T;
+}
+
 const ruleBuilders = [
   rule("Hyper Key (⌃⌥⇧⌘)").manipulators([
     map("caps_lock", { optional: "any" })
@@ -199,7 +244,9 @@ const ruleBuilders = [
   }),
 ];
 
-const rules = ruleBuilders.map((builder) => builder.build());
+const rules = replaceModeNotifications(
+  ruleBuilders.map((builder) => builder.build()),
+);
 
 // Map function keys to re-enable brightness and volume controls
 const fn_function_keys = [
