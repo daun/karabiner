@@ -68,16 +68,16 @@ const ruleBuilders = [
       .description("Caps Lock -> Hyper Key"),
   ]),
 
-  rule("Direct Hyper shortcuts").manipulators([
-    // Homerow keyboard navigation
-    withHyper("spacebar").to(
-      press("spacebar", ["right_control", "right_option", "right_command"]),
-    ),
+  rule("Direct Hyper shortcuts", ifVar("__layer", 1).unless()).manipulators([
+    // Homerow keyboard navigation (already handled by actual Homerow shortcuts)
+    // withHyper("spacebar").to(
+    //   press("spacebar", ["right_control", "right_option", "right_command"]),
+    // ),
 
-    // Homerow item search
-    withHyper("semicolon").to(
-      press("spacebar", ["right_shift", "right_option", "right_command"]),
-    ),
+    // // Homerow item search (already handled by actual Homerow shortcuts)
+    // withHyper("semicolon").to(
+    //   press("spacebar", ["right_shift", "right_option", "right_command"]),
+    // ),
 
     // Arrow keys
     withHyper("h").to(press("left_arrow")),
