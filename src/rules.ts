@@ -11,6 +11,10 @@ import {
 import {
   app,
   createDeviceConfiguration,
+  type DisableableManipulatorMap,
+  disabled,
+  enabled,
+  enabledManipulators,
   key,
   open,
   press,
@@ -46,7 +50,7 @@ function withHyper(key: FromKeyParam) {
 function hyperMode(
   key: LayerKeyParam,
   name: string,
-  manipulators: ManipulatorMap,
+  manipulators: DisableableManipulatorMap,
   behavior: HyperModeBehavior = defaultHyperModeBehavior,
 ) {
   const mode = hyperLayer(key, `hyper_mode_${key}`).description(
@@ -56,7 +60,9 @@ function hyperMode(
   if (behavior === "leader") mode.leaderMode();
   if (behavior === "sticky") mode.leaderMode({ sticky: true });
 
-  return mode.notification(name).manipulators(manipulators);
+  return mode
+    .notification(name)
+    .manipulators(enabledManipulators(manipulators));
 }
 
 function modeHudCommand(text: string) {
@@ -104,7 +110,7 @@ function replaceModeNotifications<T>(value: T): T {
   ) as T;
 }
 
-const ruleBuilders = [
+const ruleBuilders = enabled<RuleBuilder>([
   rule("Hyper Key (⌃⌥⇧⌘)").manipulators([
     map("caps_lock", { optional: "any" })
       .toHyper()
@@ -227,11 +233,13 @@ const ruleBuilders = [
     i: press("page_up"),
   }),
 
-  hyperMode("c", "Music", {
-    p: press("play_or_pause"),
-    n: press("fastforward"),
-    b: press("rewind"),
-  }),
+  disabled(
+    hyperMode("c", "Media", {
+      p: press("play_or_pause"),
+      n: press("fastforward"),
+      b: press("rewind"),
+    }),
+  ),
 
   hyperMode("r", "Raycast", {
     a: raycast("extensions/abielzulio/chatgpt/ask"),
@@ -242,7 +250,7 @@ const ruleBuilders = [
     p: raycast("extensions/raycast/raycast/confetti"),
     u: raycast("extensions/mmazzarolo/unicode-symbols/index"),
   }),
-];
+]);
 
 const rules = replaceModeNotifications(
   ruleBuilders.map((builder) => builder.build()),

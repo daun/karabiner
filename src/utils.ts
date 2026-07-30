@@ -1,10 +1,47 @@
 import {
+  type ManipulatorMap,
   type Modifier,
   type ToEvent,
   type ToKeyParam,
   to$,
   toKey,
 } from "karabiner.ts";
+
+const disabledMarker = Symbol("disabled");
+
+export type Disabled = { [disabledMarker]: true };
+
+export type Disableable<T> = T | Disabled;
+
+export type DisableableManipulatorMap = Partial<
+  Record<string | number, ToEvent | ToEvent[] | Disabled>
+>;
+
+/**
+ * Mark a rule, mode, or single binding as inactive. It stays in the source for
+ * reference but is left out of the generated configuration.
+ */
+export function disabled(_value?: unknown): Disabled {
+  return { [disabledMarker]: true };
+}
+
+export function isDisabled(value: unknown): value is Disabled {
+  return typeof value === "object" && value !== null && disabledMarker in value;
+}
+
+/** Drop disabled entries from a list of rules or manipulators. */
+export function enabled<T>(items: Array<Disableable<T>>): T[] {
+  return items.filter((item): item is T => !isDisabled(item));
+}
+
+/** Drop disabled entries from a key -> action map. */
+export function enabledManipulators(
+  manipulators: DisableableManipulatorMap,
+): ManipulatorMap {
+  return Object.fromEntries(
+    Object.entries(manipulators).filter(([, action]) => !isDisabled(action)),
+  ) as ManipulatorMap;
+}
 
 export function createDeviceConfiguration(
   { product_id, vendor_id }: { product_id: number; vendor_id: number },
