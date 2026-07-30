@@ -149,21 +149,26 @@ const ruleBuilders = enabled<RuleBuilder>([
 
       // Apps
       withHyper("1").to(app("1Password")),
-      withHyper("c").to(app("Google Chrome")),
+      withHyper("b").to(app("Google Chrome")),
+      withHyper("c").to(app("Visual Studio Code")),
+      withHyper("g").to(app("Tower")),
       withHyper("m").to(app("Mail")),
+      withHyper("n").to(app("Obsidian")),
       withHyper("t").to(app("Ghostty")),
-      withHyper("v").to(app("Visual Studio Code")),
     ]),
   ),
 
-  hyperMode("b", "Browse", {
-    g: open("https://github.com"),
-    m: open("https://mondediplo.com"),
-    n: open("https://www.theguardian.com/international"),
-    r: open("https://reddit.com"),
-    t: open("https://twitter.com"),
-    y: open("https://news.ycombinator.com"),
-  }),
+  // Shadowed by the direct Hyper + B shortcut (Google Chrome)
+  disabled(
+    hyperMode("b", "Browse", {
+      g: open("https://github.com"),
+      m: open("https://mondediplo.com"),
+      n: open("https://www.theguardian.com/international"),
+      r: open("https://reddit.com"),
+      t: open("https://twitter.com"),
+      y: open("https://news.ycombinator.com"),
+    }),
+  ),
 
   hyperMode("o", "Open", {
     1: app("1Password"),
