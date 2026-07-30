@@ -69,6 +69,21 @@ The active mode appears as a Karabiner notification and closes when its mode key
 is released. Caps Lock can technically be released after the mode activates,
 but the mode key must remain held.
 
+### Disabling rules
+
+Wrap a rule, mode, or single binding in `disabled()` instead of commenting it
+out. It stays in `src/rules.ts` for reference and is dropped from the generated
+configuration.
+
+```ts
+disabled(hyperMode("c", "Media", { p: press("play_or_pause") })),  // whole mode
+disabled(withHyper("spacebar").to(press("spacebar"))),             // direct shortcut
+hyperMode("s", "System", { d: disabled(raycast("...")) }),         // single binding
+```
+
+Lists of rules and manipulators are filtered with `enabled()`; mode maps are
+filtered inside `hyperMode()`.
+
 The `defaultHyperModeBehavior` setting in `src/rules.ts` can switch all modes to
 one-shot `leader` or persistent `sticky` behavior. Individual modes can also
 override the default. Direct Hyper shortcuts such as Caps Lock + H/J/K/L remain
