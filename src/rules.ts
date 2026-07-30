@@ -4,8 +4,8 @@ import {
   hyperLayer,
   ifVar,
   type LayerKeyParam,
-  type ManipulatorMap,
   map,
+  type RuleBuilder,
   rule,
 } from "karabiner.ts";
 import {
@@ -119,29 +119,44 @@ const ruleBuilders = enabled<RuleBuilder>([
       .description("Caps Lock -> Hyper Key"),
   ]),
 
-  rule("Direct Hyper shortcuts", ifVar("__layer", 1).unless()).manipulators([
-    // Homerow keyboard navigation (already handled by actual Homerow shortcuts)
-    // withHyper("spacebar").to(
-    //   press("spacebar", ["right_control", "right_option", "right_command"]),
-    // ),
+  rule("Direct Hyper shortcuts", ifVar("__layer", 1).unless()).manipulators(
+    enabled([
+      // Homerow keyboard navigation (already handled by actual Homerow shortcuts)
+      disabled(
+        withHyper("spacebar").to(
+          press("spacebar", ["right_control", "right_option", "right_command"]),
+        ),
+      ),
 
-    // // Homerow item search (already handled by actual Homerow shortcuts)
-    // withHyper("semicolon").to(
-    //   press("spacebar", ["right_shift", "right_option", "right_command"]),
-    // ),
+      // Homerow item search (already handled by actual Homerow shortcuts)
+      disabled(
+        withHyper("semicolon").to(
+          press("spacebar", ["right_shift", "right_option", "right_command"]),
+        ),
+      ),
 
-    // Arrow keys
-    withHyper("h").to(press("left_arrow")),
-    withHyper("j").to(press("down_arrow")),
-    withHyper("k").to(press("up_arrow")),
-    withHyper("l").to(press("right_arrow")),
+      // Arrow keys
+      withHyper("h").to(press("left_arrow")),
+      withHyper("j").to(press("down_arrow")),
+      withHyper("k").to(press("up_arrow")),
+      withHyper("l").to(press("right_arrow")),
 
-    // Unicode symbol and menu-item search
-    withHyper("u").to(raycast("extensions/mmazzarolo/unicode-symbols/index")),
-    withHyper("slash").to(
-      raycast("extensions/raycast/navigation/search-menu-items"),
-    ),
-  ]),
+      // Unicode symbol search
+      withHyper("u").to(raycast("extensions/mmazzarolo/unicode-symbols/index")),
+
+      // Menu-item search
+      withHyper("slash").to(
+        raycast("extensions/raycast/navigation/search-menu-items"),
+      ),
+
+      // Apps
+      withHyper("1").to(app("1Password")),
+      withHyper("c").to(app("Google Chrome")),
+      withHyper("m").to(app("Mail")),
+      withHyper("t").to(app("Ghostty")),
+      withHyper("v").to(app("Visual Studio Code")),
+    ]),
+  ),
 
   hyperMode("b", "Browse", {
     g: open("https://github.com"),
@@ -157,19 +172,15 @@ const ruleBuilders = enabled<RuleBuilder>([
     a: app("Figma"),
     b: app("Google Chrome"),
     c: app("Calendar"),
-    d: app("Adobe InDesign 2024"),
+    d: app("Adobe InDesign 2026"),
     e: app("Spark"),
     f: app("Finder"),
     g: app("Tower"),
-    i: app("iTerm"),
     m: app("Messages"),
     n: app("Notion"),
     p: app("Spotify"),
-    r: app("Around"),
-    s: app("Slack"),
     t: app("Things3"),
     v: app("Visual Studio Code"),
-    z: app("zoom.us"),
   }),
 
   hyperMode("w", "Window", {
