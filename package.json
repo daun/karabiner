@@ -20,8 +20,9 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "build": "tsx src/rules.ts",
-    "watch": "tsx watch src/rules.ts",
+    "build": "tsx src/build.ts",
+    "watch": "tsx watch src/build.ts",
+    "keymap": "tsx src/keymap.ts",
     "typecheck": "tsc --noEmit",
     "check": "biome check .",
     "check:fix": "biome check --write .",

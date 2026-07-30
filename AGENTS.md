@@ -1,9 +1,17 @@
 # Agent notes
 
+Personal [Karabiner Elements](https://karabiner-elements.pqrs.org/) keyboard
+configuration for macOS. TypeScript in `src/` is compiled by `karabiner.ts` into
+`build/karabiner.json`, which Karabiner reads live from `~/.config/karabiner`.
+Caps Lock acts as a Hyper key (⌃⌥⇧⌘); most bindings hang off it, either as
+direct chords or as held "hyper modes". See `README.md` for the user-facing
+version.
+
 ## Commands
 
 | Task | Command |
 | --- | --- |
+| Print every binding as a table | `npm run keymap` |
 | Build `build/karabiner.json` from source | `npm run build` |
 | Type-check, lint, and build | `npm run verify` |
 | Autofix formatting and lint | `npm run check:fix` |
@@ -18,8 +26,12 @@ formatting error also skips the build.
 ## Layout
 
 - `src/rules.ts` — single source of truth for every binding: hyper modes,
-  direct Hyper shortcuts, fn keys, per-device modifications. Answer "which key
-  does X?" by grepping this file.
+  direct Hyper shortcuts, fn keys, per-device modifications. Exports `config`.
+  Edit bindings here.
+- `src/build.ts` — build entry point; writes `build/karabiner.json`.
+- `src/keymap.ts` — renders `config` as a table. Run `npm run keymap` to answer
+  "which key does X?" in one call: `npm run keymap | grep -i chrome` prints the
+  full key sequence. Prefer this over reading `src/rules.ts` end to end.
 - `src/utils.ts` — action helpers (`app`, `open`, `raycast`, `window`, `press`)
   and the `disabled` / `enabled` filtering used to switch bindings off.
 - `build/karabiner.json` — generated output. Never edit, never grep. It is

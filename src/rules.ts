@@ -1,4 +1,3 @@
-import fs from "node:fs";
 import {
   type FromKeyParam,
   hyperLayer,
@@ -19,7 +18,6 @@ import {
   open,
   press,
   raycast,
-  sortObjectKeys,
   window,
 } from "./utils";
 
@@ -317,12 +315,7 @@ const profile = {
   ],
 };
 
-const config = {
+export const config = {
   global: settings,
   profiles: [profile],
 };
-
-fs.writeFileSync(
-  "build/karabiner.json",
-  JSON.stringify(config, sortObjectKeys, 4),
-);

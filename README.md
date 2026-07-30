@@ -38,6 +38,13 @@ Builds `karabiner.json` from `src/rules.ts`.
 npm run build
 ```
 
+Prints every binding as a table. Pipe it through `grep` to look up a shortcut,
+e.g. `npm run keymap | grep -i chrome`.
+
+```sh
+npm run keymap
+```
+
 Watch TypeScript files and rebuild whenever they change.
 
 ```sh
@@ -61,8 +68,8 @@ npm run deploy
 Multi-key commands use held layers. Keep Caps Lock and the mode key pressed
 while invoking one or more actions. For example:
 
-- Hold Caps Lock + B, then press G to open GitHub.
 - Hold Caps Lock + O, then press V to open Visual Studio Code.
+- Hold Caps Lock + V, then press M for Homerow magicmove.
 - Hold Caps Lock + W, then press H, L, or F to try several window positions.
 
 The active mode appears as a Karabiner notification and closes when its mode key
