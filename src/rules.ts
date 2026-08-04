@@ -151,6 +151,7 @@ const ruleBuilders = enabled<RuleBuilder>([
       withHyper("1").to(app("1Password")),
       withHyper("b").to(app("Google Chrome")),
       withHyper("c").to(app("Visual Studio Code")),
+      withHyper("d").to(app("Figma")),
       withHyper("f").to(app("Finder")),
       withHyper("g").to(app("Tower")),
       withHyper("m").to(app("Mail")),
@@ -217,14 +218,17 @@ const ruleBuilders = enabled<RuleBuilder>([
     comma: press("h", ["right_command"]),
   }),
 
-  hyperMode("d", "Desktop", {
-    // Move the window between desktops
-    j: window("previous-desktop"),
-    k: window("next-desktop"),
-    // Go to the previous or next desktop
-    h: press("left_arrow", ["right_control"]),
-    l: press("right_arrow", ["right_control"]),
-  }),
+  // Shadowed by the direct Hyper + D shortcut (Figma)
+  disabled(
+    hyperMode("d", "Desktop", {
+      // Move the window between desktops
+      j: window("previous-desktop"),
+      k: window("next-desktop"),
+      // Go to the previous or next desktop
+      h: press("left_arrow", ["right_control"]),
+      l: press("right_arrow", ["right_control"]),
+    }),
+  ),
 
   hyperMode("s", "System", {
     u: press("volume_increment"),
