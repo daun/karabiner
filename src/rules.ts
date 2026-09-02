@@ -296,24 +296,19 @@ const fn_function_keys = [
 ];
 
 // Swap [`] and [§] keys for external keyboards
-const switch_accent_and_backslash = [
-  key("grave_accent_and_tilde", { key_code: "non_us_backslash" }),
-  key("non_us_backslash", { key_code: "grave_accent_and_tilde" }),
-];
-
 const macmini_customizations = createDeviceConfiguration(
   { product_id: 671, vendor_id: 76 },
-  { simple_modifications: switch_accent_and_backslash },
+  { swap_grave_accent_and_non_us_backslash: true },
 );
 
 const magic_keyboard_customizations = createDeviceConfiguration(
   { product_id: 801, vendor_id: 76 },
-  { simple_modifications: switch_accent_and_backslash },
+  { swap_grave_accent_and_non_us_backslash: true },
 );
 
 const macbook_customizations = createDeviceConfiguration(
   { product_id: 834, vendor_id: 1452 },
-  { simple_modifications: switch_accent_and_backslash },
+  { swap_grave_accent_and_non_us_backslash: true },
 );
 
 const profile = {
