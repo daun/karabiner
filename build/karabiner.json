@@ -177,6 +177,35 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "option",
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "u",
                                     "modifiers": {
                                         "mandatory": [
@@ -2161,28 +2190,7 @@
                         "product_id": 671,
                         "vendor_id": 76
                     },
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "grave_accent_and_tilde"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "non_us_backslash"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "non_us_backslash"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "grave_accent_and_tilde"
-                                }
-                            ]
-                        }
-                    ]
+                    "swap_grave_accent_and_non_us_backslash": true
                 },
                 {
                     "identifiers": {
@@ -2190,28 +2198,7 @@
                         "product_id": 801,
                         "vendor_id": 76
                     },
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "grave_accent_and_tilde"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "non_us_backslash"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "non_us_backslash"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "grave_accent_and_tilde"
-                                }
-                            ]
-                        }
-                    ]
+                    "swap_grave_accent_and_non_us_backslash": true
                 },
                 {
                     "identifiers": {
@@ -2219,28 +2206,7 @@
                         "product_id": 834,
                         "vendor_id": 1452
                     },
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "grave_accent_and_tilde"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "non_us_backslash"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "non_us_backslash"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "grave_accent_and_tilde"
-                                }
-                            ]
-                        }
-                    ]
+                    "swap_grave_accent_and_non_us_backslash": true
                 }
             ],
             "fn_function_keys": [
