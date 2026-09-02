@@ -139,6 +139,9 @@ const ruleBuilders = enabled<RuleBuilder>([
       withHyper("k").to(press("up_arrow")),
       withHyper("l").to(press("right_arrow")),
 
+      // Forward delete (keyboard has no dedicated key)
+      withHyper("delete_or_backspace").to(press("delete_forward")),
+
       // Unicode symbol search
       withHyper("u").to(raycast("extensions/mmazzarolo/unicode-symbols/index")),
 
